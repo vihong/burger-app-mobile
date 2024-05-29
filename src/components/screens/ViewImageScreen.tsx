@@ -1,5 +1,5 @@
 import React from "react"
-import { Image, Platform, StatusBar } from "react-native"
+import { Platform, StatusBar } from "react-native"
 import styled from "styled-components/native"
 import { theme } from "../../style/theme"
 
@@ -14,7 +14,7 @@ export default function ViewImageScreen() {
 }
 
 const ViewImageScreenStyled = styled.SafeAreaView`
-  background: ${theme.colors.darkBackground};
+  background: ${theme.colors.black};
   flex: 1;
 `
 
