@@ -2,6 +2,7 @@ import React from "react"
 import { Text } from "react-native"
 import styled from "styled-components/native"
 import Logo from "../designSystem/atoms/Logo"
+import { theme } from "../../style/theme"
 
 export default function WelcomeScreen() {
   return (
@@ -39,11 +40,11 @@ const ButtonsStyled = styled.View`
 `
 
 const LoginButtonStyled = styled.View`
-  background-color: #fc5c65;
+  background-color: ${theme.colors.primary};
   height: 100px;
 `
 
 const RegisterButtonStyled = styled.View`
-  background-color: #4ecdc4;
+  background-color: ${theme.colors.secondary};
   height: 100px;
 `
