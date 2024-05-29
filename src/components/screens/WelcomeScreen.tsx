@@ -1,52 +1,49 @@
 import React from "react"
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native"
+import { Text } from "react-native"
+import styled from "styled-components/native"
+import Logo from "../designSystem/atoms/Logo"
 
 export default function WelcomeScreen() {
   return (
-    <ImageBackground
-      source={require("../../assets/login-background.jpg")}
-      style={styles.imageBackground}
-    >
-      <View style={styles.logoContainer}>
-        <Image source={require("../../assets/logo-red.png")} style={styles.logo} />
+    <WelcomeScreenStyled source={require("../../assets/login-background.jpg")}>
+      <LogoContainer>
+        <Logo />
         <Text>Sell What You Don't Need</Text>
-      </View>
-      <View style={styles.form}>
-        <View style={styles.login}></View>
-        <View style={styles.register}></View>
-      </View>
-    </ImageBackground>
+      </LogoContainer>
+      <ButtonsStyled>
+        <LoginButtonStyled />
+        <RegisterButtonStyled />
+      </ButtonsStyled>
+    </WelcomeScreenStyled>
   )
 }
 
-const styles = StyleSheet.create({
-  imageBackground: {
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  logoContainer: {
-    height: 150,
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    flex: 1,
+const WelcomeScreenStyled = styled.ImageBackground`
+  border: 1px solid red;
+  flex: 1;
+  justify-content: flex-end;
+`
 
-    position: "absolute",
-    top: 80,
-  },
-  form: {
-    backgroundColor: "blue",
-  },
-  logo: {
-    height: 100,
-    width: 100,
-  },
-  login: {
-    backgroundColor: "(#fc5c65)",
-    height: 100,
-  },
-  register: {
-    backgroundColor: "#4ECDC4",
-    height: 100,
-  },
-})
+const LogoContainer = styled.View`
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  position: absolute;
+  top: 80px;
+`
+
+const ButtonsStyled = styled.View`
+  background: blue;
+`
+
+const LoginButtonStyled = styled.View`
+  background-color: #fc5c65;
+  height: 100px;
+`
+
+const RegisterButtonStyled = styled.View`
+  background-color: #4ecdc4;
+  height: 100px;
+`
