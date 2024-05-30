@@ -7,6 +7,7 @@ const colors = {
   white: "#FFF",
   grey: "#f8f4f4",
   greyDark: "#7a7676",
+  greyLight: "#f8f4f4",
 }
 
 const fonts: Fonts = {
