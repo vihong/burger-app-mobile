@@ -1,5 +1,4 @@
 import styled from "styled-components/native"
-import Text from "../designSystem/atoms/Text"
 import Button from "../designSystem/atoms/Button"
 
 export default function DraftScreen() {

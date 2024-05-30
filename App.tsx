@@ -5,5 +5,5 @@ import ViewImageScreen from "./src/components/screens/ViewImageScreen"
 import WelcomeScreen from "./src/components/screens/WelcomeScreen"
 
 export default function App() {
-  return <ProductScreen />
+  return <ViewImageScreen />
 }

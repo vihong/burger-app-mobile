@@ -1,13 +1,18 @@
 import React from "react"
-import { Platform, StatusBar } from "react-native"
+import { Platform, StatusBar, StyleSheet, View } from "react-native"
 import styled from "styled-components/native"
 import { theme } from "../../style/theme"
+import Icon from "../designSystem/atoms/Icon"
 
 export default function ViewImageScreen() {
   return (
     <ViewImageScreenStyled>
-      <CloseButton />
-      <DeleteButton />
+      <View style={styles.iconClose}>
+        <Icon name="close" size={40} color="white" />
+      </View>
+      <View style={styles.iconTrash}>
+        <Icon name="trash-can-outline" size={40} color="white" />
+      </View>
       <ImageStyled source={require("../../assets/chair.jpg")} resizeMode="contain" />
     </ViewImageScreenStyled>
   )
@@ -23,20 +28,23 @@ const ImageStyled = styled.Image`
   width: 100%;
 `
 
-const CloseButton = styled.View`
-  background: tomato;
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  top: ${Platform.OS === "android" ? StatusBar.currentHeight : "40px"};
-  left: 30px;
-`
-
-const DeleteButton = styled.View`
-  background: turquoise;
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  top: ${Platform.OS === "android" ? StatusBar.currentHeight : "40px"};
-  right: 30px;
-`
+const styles = StyleSheet.create({
+  iconClose: {
+    height: 50,
+    width: 50,
+    position: "absolute",
+    top: Platform.OS === "android" ? StatusBar.currentHeight : 40,
+    left: 30,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  iconTrash: {
+    height: 50,
+    width: 50,
+    position: "absolute",
+    top: Platform.OS === "android" ? StatusBar.currentHeight : 40,
+    right: 30,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+})
