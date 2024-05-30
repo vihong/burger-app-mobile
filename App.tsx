@@ -5,11 +5,12 @@ import MessagesScreen from "./src/components/screens/MessagesScreen"
 import ProductScreen from "./src/components/screens/ProductScreen"
 import ViewImageScreen from "./src/components/screens/ViewImageScreen"
 import WelcomeScreen from "./src/components/screens/WelcomeScreen"
+import AccountScreen from "./src/components/screens/AccountScreen"
 
 export default function App() {
   return (
     <GestureHandlerRootView>
-      <MessagesScreen />
+      <AccountScreen />
     </GestureHandlerRootView>
   )
 }

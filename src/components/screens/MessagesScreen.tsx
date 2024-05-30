@@ -8,9 +8,24 @@ import { Message } from "../../types/Message"
 import { deepClone } from "../../utils/typescript"
 
 const fakeMessages: Message[] = [
-  { id: 1, title: "T1", subtitle: "D1", image: require("../../assets/mosh.jpg") },
-  { id: 2, title: "T2", subtitle: "D2", image: require("../../assets/mosh.jpg") },
-  { id: 3, title: "T3", subtitle: "D3", image: require("../../assets/mosh.jpg") },
+  {
+    id: 1,
+    title: "Mosh",
+    subtitle: "Au jardin des Tuileries",
+    image: require("../../assets/mosh.jpg"),
+  },
+  {
+    id: 2,
+    title: "Mosh",
+    subtitle: "Chercheur de problèmes professionnel",
+    image: require("../../assets/mosh.jpg"),
+  },
+  {
+    id: 3,
+    title: "Mosh",
+    subtitle: "Beau gosse des ténèbres",
+    image: require("../../assets/mosh.jpg"),
+  },
 ]
 
 export default function MessagesScreen() {
@@ -26,7 +41,7 @@ export default function MessagesScreen() {
   const handleRefreshMessages = () => {
     setIsRefreshing(true)
     setTimeout(() => {
-      setMessages([{ id: 2, title: "T2", subtitle: "D2", image: require("../../assets/mosh.jpg") }])
+      setMessages([fakeMessages[1]])
       setIsRefreshing(false)
     }, 2000)
   }
