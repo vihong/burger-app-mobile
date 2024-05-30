@@ -30,8 +30,6 @@ const ImageStyled = styled.Image`
 
 const styles = StyleSheet.create({
   iconClose: {
-    height: 50,
-    width: 50,
     position: "absolute",
     top: Platform.OS === "android" ? StatusBar.currentHeight : 40,
     left: 30,
@@ -39,8 +37,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   iconTrash: {
-    height: 50,
-    width: 50,
     position: "absolute",
     top: Platform.OS === "android" ? StatusBar.currentHeight : 40,
     right: 30,
