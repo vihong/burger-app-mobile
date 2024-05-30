@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components/native"
 import { Platform, TextProps as ReactNativeTextProps } from "react-native"
+import { getPlatformFontFamily, theme } from "../../../style/theme"
 
 type TextProps = {
   children: React.ReactNode
@@ -11,10 +12,6 @@ export default function Text({ children }: TextProps) {
 }
 
 const TextStyled = styled.Text`
-  font-size: 18px;
-  font-family: ${Platform.select({
-    ios: "Avenir",
-    android: "Roboto",
-    default: "System",
-  })};
+  ${theme.fonts.title}
+  font-family: ${() => getPlatformFontFamily(Platform.OS)}
 `
