@@ -10,7 +10,7 @@ import AccountScreen from "./src/components/screens/AccountScreen"
 export default function App() {
   return (
     <GestureHandlerRootView>
-      <AccountScreen />
+      <FeedScreen />
     </GestureHandlerRootView>
   )
 }

@@ -4,10 +4,10 @@ import ListItem from "../designSystem/molecules/ListItem"
 import Screen from "../designSystem/atoms/Screen"
 import ListItemSeparator from "../designSystem/atoms/ListItemSeparator"
 import ListItemDeleteAction from "../designSystem/atoms/ListItemDeleteAction"
-import { Message } from "../../types/Message"
 import { deepClone } from "../../utils/typescript"
+import { ListItemType } from "../../types/ListItem"
 
-const fakeMessages: Message[] = [
+const fakeMessages: ListItemType[] = [
   {
     id: 1,
     title: "Mosh",
@@ -29,7 +29,7 @@ const fakeMessages: Message[] = [
 ]
 
 export default function MessagesScreen() {
-  const [messages, setMessages] = useState<Message[]>(fakeMessages)
+  const [messages, setMessages] = useState<ListItemType[]>(fakeMessages)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
   const handleDeleteMessage = (idMessageToDelete: number) => {
