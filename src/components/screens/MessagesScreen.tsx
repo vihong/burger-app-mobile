@@ -4,6 +4,7 @@ import Text from "../designSystem/atoms/Text"
 import ListItem from "../designSystem/molecules/ListItem"
 import Screen from "../designSystem/atoms/Screen"
 import ListItemSeparator from "../designSystem/atoms/ListItemSeparator"
+import ListItemDeleteAction from "../designSystem/atoms/ListItemDeleteAction"
 
 const messages = [
   { id: 1, title: "T1", subtitle: "D1", image: require("../../assets/mosh.jpg") },
@@ -23,6 +24,9 @@ export default function MessagesScreen() {
             subtitle={message.subtitle}
             imageSource={message.image}
             onPress={() => console.log("message.title: ", message.title)}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => console.log("Deleted")} />
+            )}
           />
         )}
         ItemSeparatorComponent={() => <ListItemSeparator />}

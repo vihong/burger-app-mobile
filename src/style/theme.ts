@@ -2,6 +2,7 @@ import { PlatformOSType } from "react-native"
 
 const colors = {
   primary: "#fc5c65",
+  danger: "#ff5252",
   secondary: "#4ecdc4",
   black: "#000",
   white: "#FFF",

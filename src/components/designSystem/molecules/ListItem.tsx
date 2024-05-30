@@ -9,25 +9,36 @@ import {
 } from "react-native"
 import Text from "../atoms/Text"
 import { theme } from "../../../style/theme"
+import Swipeable from "react-native-gesture-handler/Swipeable"
+import { RenderRightActionsType } from "../../../types/ListItem"
 
 type ListItemProps = {
   title: string
   subtitle: string
   imageSource: ImageSourcePropType
   onPress?: (event: GestureResponderEvent) => void
+  renderRightActions?: RenderRightActionsType
 }
 
-export default function ListItem({ title, subtitle, imageSource, onPress }: ListItemProps) {
+export default function ListItem({
+  title,
+  subtitle,
+  imageSource,
+  onPress,
+  renderRightActions,
+}: ListItemProps) {
   return (
-    <TouchableHighlight underlayColor={theme.colors.greyLight} onPress={onPress}>
-      <View style={styles.ListItem}>
-        <Image style={styles.profileImage} source={imageSource} />
-        <View style={styles.profileInfo}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>{subtitle}</Text>
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight underlayColor={theme.colors.greyLight} onPress={onPress}>
+        <View style={styles.ListItem}>
+          <Image style={styles.profileImage} source={imageSource} />
+          <View style={styles.profileInfo}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
+          </View>
         </View>
-      </View>
-    </TouchableHighlight>
+      </TouchableHighlight>
+    </Swipeable>
   )
 }
 
