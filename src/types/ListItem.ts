@@ -14,3 +14,10 @@ export type ListItemType = {
   subtitle: string
   image: ImageSourcePropType
 }
+
+export type ProductType = {
+  id: number
+  title: string
+  price: number
+  image: ImageSourcePropType
+}

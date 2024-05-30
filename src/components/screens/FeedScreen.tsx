@@ -1,20 +1,20 @@
 import React, { useState } from "react"
 import Card from "../designSystem/molecules/Card"
 import { FlatList, StyleSheet, View } from "react-native"
-import { ListItemType } from "../../types/ListItem"
+import { ProductType } from "../../types/ListItem"
 import Screen from "../designSystem/atoms/Screen"
 
-const fakeProducts: ListItemType[] = [
+const fakeProducts: ProductType[] = [
   {
     id: 1,
     title: "Red jacket for sale!",
-    subtitle: "$100",
+    price: 100,
     image: require("../../assets/jacket.jpg"),
   },
   {
     id: 2,
     title: "Couch in great condition!",
-    subtitle: "$900",
+    price: 900,
     image: require("../../assets/couch.jpg"),
   },
 ]
@@ -34,7 +34,11 @@ export default function FeedScreen() {
           data={products}
           keyExtractor={(product) => product.id.toString()}
           renderItem={({ index, item: product }) => (
-            <Card title={product.title} subtitle={product.subtitle} imageSource={product.image} />
+            <Card
+              title={product.title}
+              subtitle={`$${product.price}`}
+              imageSource={product.image}
+            />
           )}
           refreshing={isRefreshing}
           onRefresh={handleRefresh}
