@@ -1,5 +1,5 @@
 import React from "react"
-import { GestureResponderEvent, StyleProp, TextStyle, TouchableOpacity } from "react-native"
+import { GestureResponderEvent, StyleProp, TextStyle, ViewStyle } from "react-native"
 import styled from "styled-components/native"
 import { theme } from "../../../style/theme"
 
@@ -7,23 +7,30 @@ type ButtonProps = {
   title: string
   onPress: (event: GestureResponderEvent) => void
   textStyle?: StyleProp<TextStyle>
+  backgroundStyle?: StyleProp<ViewStyle>
+  backgroundColor?: string
 }
 
-export default function Button({ title, onPress, textStyle }: ButtonProps) {
+export default function Button({ title, onPress, textStyle, backgroundColor }: ButtonProps) {
   return (
-    <TouchableOpacityStyled onPress={onPress}>
+    <TouchableOpacityStyled onPress={onPress} backgroundColor={backgroundColor}>
       <TextStyled style={textStyle}>{title}</TextStyled>
     </TouchableOpacityStyled>
   )
 }
 
-const TouchableOpacityStyled = styled.TouchableOpacity`
+type TouchableOpacityStyledProps = {
+  backgroundColor?: string
+}
+
+const TouchableOpacityStyled = styled.TouchableOpacity<TouchableOpacityStyledProps>`
   padding: 12px 0;
   width: 100%;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  background-color: ${theme.colors.primary};
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ? backgroundColor : theme.colors.primary};
 `
 
 const TextStyled = styled.Text`

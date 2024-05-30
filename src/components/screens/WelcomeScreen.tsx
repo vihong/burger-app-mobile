@@ -1,19 +1,24 @@
 import React from "react"
-import { Text } from "react-native"
 import styled from "styled-components/native"
 import Logo from "../designSystem/atoms/Logo"
 import { theme } from "../../style/theme"
+import Button from "../designSystem/atoms/Button"
+
+const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 
 export default function WelcomeScreen() {
   return (
-    <WelcomeScreenStyled source={require("../../assets/login-background.jpg")}>
+    <WelcomeScreenStyled
+      source={require(WELCOME_SCREEN_BACKGROUND_PICTURE)}
+      blurRadius={theme.blurRadius.normal}
+    >
       <LogoContainer>
         <Logo />
-        <Text>Sell What You Don't Need</Text>
+        <TextStyled>Sell What You Don't Need</TextStyled>
       </LogoContainer>
       <ButtonsStyled>
-        <LoginButtonStyled />
-        <RegisterButtonStyled />
+        <Button title="Login" onPress={() => {}} />
+        <Button title="Register" onPress={() => {}} backgroundColor={theme.colors.secondary} />
       </ButtonsStyled>
     </WelcomeScreenStyled>
   )
@@ -35,16 +40,15 @@ const LogoContainer = styled.View`
   top: 80px;
 `
 
+const TextStyled = styled.Text`
+  font-size: ${theme.fonts.titleXS.fontSize}px;
+  font-weight: ${theme.weights.bold};
+  top: 20px;
+`
+
 const ButtonsStyled = styled.View`
-  background: blue;
-`
-
-const LoginButtonStyled = styled.View`
-  background-color: ${theme.colors.primary};
-  height: 100px;
-`
-
-const RegisterButtonStyled = styled.View`
-  background-color: ${theme.colors.secondary};
-  height: 100px;
+  margin-bottom: 50px;
+  height: 110px;
+  justify-content: space-between;
+  padding: 0 20px;
 `
