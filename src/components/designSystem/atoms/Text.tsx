@@ -12,6 +12,6 @@ export default function Text({ children }: TextProps) {
 }
 
 const TextStyled = styled.Text`
-  ${theme.fonts.title}
+  ${theme.fonts.titleS}
   font-family: ${() => getPlatformFontFamily(Platform.OS)}
 `

@@ -4,22 +4,23 @@ const colors = {
   primary: "#fc5c65",
   secondary: "#4ecdc4",
   black: "#000",
+  white: "#FFF",
 }
 
 const fonts: Fonts = {
-  P0: {
+  XS: {
     fontSize: 10,
     lineHeight: 15,
   },
-  P1: {
+  S: {
     fontSize: 12,
     lineHeight: 18,
   },
-  P2: {
+  M: {
     fontSize: 14,
     lineHeight: 21,
   },
-  P3: {
+  L: {
     fontSize: 16,
     lineHeight: 24,
   },
