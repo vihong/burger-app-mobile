@@ -66,6 +66,7 @@ const borderRadius = {
   subtle: 1,
   rounded: 5,
   extraRounded: 20,
+  maxRounded: 25,
 }
 
 export const weights = {

@@ -48,7 +48,7 @@ const TextStyled = styled.Text`
 
 const ButtonsStyled = styled.View`
   margin-bottom: 50px;
-  height: 110px;
+  height: 140px;
   justify-content: space-between;
   padding: 0 20px;
 `

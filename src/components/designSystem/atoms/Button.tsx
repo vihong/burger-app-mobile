@@ -24,7 +24,7 @@ type TouchableOpacityStyledProps = {
 }
 
 const TouchableOpacityStyled = styled.TouchableOpacity<TouchableOpacityStyledProps>`
-  padding: 12px 0;
+  padding: 15px 0;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -34,8 +34,7 @@ const TouchableOpacityStyled = styled.TouchableOpacity<TouchableOpacityStyledPro
 `
 
 const TextStyled = styled.Text`
-  font-size: ${theme.fonts.S.fontSize}px;
-  line-height: ${theme.fonts.S.lineHeight}px;
+  font-size: ${theme.fonts.L.fontSize}px;
   text-transform: uppercase;
   font-weight: bold;
   color: ${theme.colors.white};
