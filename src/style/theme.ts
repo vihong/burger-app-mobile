@@ -5,6 +5,7 @@ const colors = {
   secondary: "#4ecdc4",
   black: "#000",
   white: "#FFF",
+  grey: "#f8f4f4",
 }
 
 const fonts: Fonts = {
@@ -49,7 +50,7 @@ const fonts: Fonts = {
 export const getPlatformFontFamily = (platform: PlatformOSType) => {
   switch (platform) {
     case "ios":
-      return "Courier"
+      return "Avenir"
     case "android":
       return "Roboto"
     default:
@@ -61,6 +62,12 @@ const blurRadius = {
   normal: 8,
 }
 
+const borderRadius = {
+  subtle: 1,
+  rounded: 5,
+  extraRounded: 20,
+}
+
 export const weights = {
   thin: 100,
   extraLight: 200,
@@ -70,13 +77,14 @@ export const weights = {
   semiBold: 600,
   bold: 700,
   heavy: 800,
-}
+} as const
 
 export const theme = {
   colors,
   fonts,
   blurRadius,
   weights,
+  borderRadius,
 }
 
 type FontType = {
