@@ -3,15 +3,15 @@ import { Image, ImageSourcePropType, StyleSheet, View } from "react-native"
 import Text from "../atoms/Text"
 import { theme } from "../../../style/theme"
 
-type UserCardProps = {
+type ListItemProps = {
   title: string
   subtitle: string
   imageSource: ImageSourcePropType
 }
 
-export default function UserCard({ title, subtitle, imageSource }: UserCardProps) {
+export default function ListItem({ title, subtitle, imageSource }: ListItemProps) {
   return (
-    <View style={styles.userCard}>
+    <View style={styles.ListItem}>
       <Image style={styles.profileImage} source={imageSource} />
       <View style={styles.profileInfo}>
         <Text style={styles.title}>{title}</Text>
@@ -22,7 +22,7 @@ export default function UserCard({ title, subtitle, imageSource }: UserCardProps
 }
 
 const styles = StyleSheet.create({
-  userCard: {
+  ListItem: {
     flexDirection: "row",
   },
   profileImage: {

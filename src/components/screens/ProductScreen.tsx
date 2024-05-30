@@ -3,7 +3,7 @@ import styled from "styled-components/native"
 import Text from "../designSystem/atoms/Text"
 import { Image, StyleSheet, View } from "react-native"
 import { theme } from "../../style/theme"
-import UserCard from "../designSystem/molecules/UserCard"
+import ListItem from "../designSystem/molecules/ListItem"
 
 export default function ProductScreen() {
   return (
@@ -13,7 +13,7 @@ export default function ProductScreen() {
         <Text style={styles.title}>Red jacket for sale!</Text>
         <Text style={styles.subtitle}>$100</Text>
       </View>
-      <UserCard
+      <ListItem
         title="Mosh Hamedani"
         subtitle="5 products"
         imageSource={require("../../assets/mosh.jpg")}
