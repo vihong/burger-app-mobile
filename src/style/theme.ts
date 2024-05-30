@@ -65,7 +65,7 @@ const blurRadius = {
 const borderRadius = {
   subtle: 1,
   rounded: 5,
-  extraRounded: 20,
+  extraRounded: 15,
   maxRounded: 25,
 }
 

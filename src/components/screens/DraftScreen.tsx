@@ -5,7 +5,6 @@ import Button from "../designSystem/atoms/Button"
 export default function DraftScreen() {
   return (
     <DraftScreenStyled>
-      {/* <Text>Hey</Text> */}
       <Button title="login" onPress={() => {}} />
     </DraftScreenStyled>
   )

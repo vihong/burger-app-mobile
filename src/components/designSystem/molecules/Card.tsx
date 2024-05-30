@@ -1,52 +1,52 @@
 import React from "react"
 import styled from "styled-components/native"
-import { theme } from "../../../style/theme"
+import { ImageSourcePropType, StyleSheet } from "react-native"
 import Text from "../atoms/Text"
-import { StyleSheet } from "react-native"
+import { theme } from "../../../style/theme"
 
-export default function Card() {
+type CardProps = {
+  title: string
+  subtitle: string
+  imageSource: ImageSourcePropType
+}
+
+export default function Card({ title, subtitle, imageSource }: CardProps) {
   return (
-    <CardStyled>
-      <ImageStyled source={require("../../../assets/jacket.jpg")} resizeMode="cover" />
-      <DetailsStyled>
-        <Text style={styles.title}>Red jacket for sale!</Text>
-        <Text style={styles.price}>$100</Text>
-      </DetailsStyled>
-    </CardStyled>
+    <CardStyle>
+      <ImageStyled source={imageSource} resizeMode="cover" />
+      <TextContainer>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text>
+      </TextContainer>
+    </CardStyle>
   )
 }
 
-const CardStyled = styled.View`
-  /* border: 2px solid green; */
-  height: 300px;
-  width: 90%;
+const CardStyle = styled.View`
+  background: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRounded}px;
   overflow: hidden;
+  margin-bottom: 20px;
 `
 
 const ImageStyled = styled.Image`
-  background: yellow;
-  flex: 3.5;
+  height: 200px;
   width: 100%;
-  border-top-left-radius: ${theme.borderRadius.extraRounded}px;
-  border-top-right-radius: ${theme.borderRadius.extraRounded}px;
 `
 
-const DetailsStyled = styled.View`
-  flex: 1;
-  background: ${theme.colors.white};
-  padding: 20px;
-  justify-content: space-between;
-  border-bottom-left-radius: ${theme.borderRadius.extraRounded}px;
-  border-bottom-right-radius: ${theme.borderRadius.extraRounded}px;
+const TextContainer = styled.View`
+  padding: 15px 20px;
 `
 
 const styles = StyleSheet.create({
   title: {
+    ...theme.fonts.M,
     fontWeight: theme.weights.bold,
+    marginBottom: 5,
   },
-  price: {
-    fontWeight: "bold",
+  subtitle: {
+    ...theme.fonts.M,
     color: theme.colors.secondary,
+    fontWeight: theme.weights.bold,
   },
 })
