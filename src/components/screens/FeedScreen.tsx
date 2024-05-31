@@ -3,6 +3,8 @@ import Card from "../designSystem/molecules/Card"
 import { FlatList, StyleSheet, View } from "react-native"
 import { ProductType } from "../../types/ListItem"
 import Screen from "../designSystem/atoms/Screen"
+import Button from "../designSystem/atoms/Button"
+import Text from "../designSystem/atoms/Text"
 
 const fakeProducts: ProductType[] = [
   {
@@ -19,7 +21,11 @@ const fakeProducts: ProductType[] = [
   },
 ]
 
-export default function FeedScreen() {
+type FeedScreenProps = {
+  navigation: any
+}
+
+export default function FeedScreen({ navigation, route }: FeedScreenProps) {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [products, setProducts] = useState(fakeProducts)
 
@@ -42,6 +48,10 @@ export default function FeedScreen() {
           )}
           refreshing={isRefreshing}
           onRefresh={handleRefresh}
+        />
+        <Button
+          title="Retourner à l'écran d'accueil"
+          onPress={() => navigation.navigate("Welcome")}
         />
       </View>
     </Screen>

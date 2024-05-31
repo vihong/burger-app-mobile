@@ -6,7 +6,16 @@ import Button from "../designSystem/atoms/Button"
 
 const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 
-export default function WelcomeScreen() {
+type WelcomeScreenProps = {
+  navigation: any
+}
+
+export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
+  const handleLogin = () => {
+    console.log("navigation: ", navigation)
+    navigation.navigate("Feed", { name: "Jaimie" })
+  }
+
   return (
     <WelcomeScreenStyled
       source={require(WELCOME_SCREEN_BACKGROUND_PICTURE)}
@@ -17,7 +26,7 @@ export default function WelcomeScreen() {
         <TextStyled>Sell What You Don't Need</TextStyled>
       </LogoContainer>
       <ButtonsStyled>
-        <Button title="Login" onPress={() => {}} />
+        <Button title="Login" onPress={handleLogin} />
         <Button title="Register" onPress={() => {}} backgroundColor={theme.colors.secondary} />
       </ButtonsStyled>
     </WelcomeScreenStyled>
@@ -25,7 +34,7 @@ export default function WelcomeScreen() {
 }
 
 const WelcomeScreenStyled = styled.ImageBackground`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   flex: 1;
   justify-content: flex-end;
 `
