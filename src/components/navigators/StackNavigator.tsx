@@ -2,18 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import React from "react"
 import WelcomeScreen from "../screens/WelcomeScreen"
 import FeedScreen from "../screens/FeedScreen"
-import { RouteProp } from "@react-navigation/native"
-
-type FeedScreenParams = {
-  name: string
-}
-
-type RootStackParamList = {
-  Welcome: undefined
-  Feed: FeedScreenParams
-}
-
-type FeedScreenRouteProp = RouteProp<RootStackParamList, "Feed">
+import { FeedScreenRouteProp, RootStackParamList } from "../../types/navigation"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
