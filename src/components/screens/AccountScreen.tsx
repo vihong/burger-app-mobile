@@ -9,12 +9,19 @@ const accountOptions = [
   {
     id: 1,
     label: "My Listings",
-    Icon: <Icon name="format-list-bulleted" size={50} backgroundColor={theme.colors.tomato} />,
+    Icon: (
+      <Icon
+        name="format-list-bulleted"
+        size={50}
+        backgroundColor={theme.colors.tomato}
+        IsInCircle
+      />
+    ),
   },
   {
     id: 2,
     label: "My Messages",
-    Icon: <Icon name="email" size={50} backgroundColor={theme.colors.secondary} />,
+    Icon: <Icon name="email" size={50} backgroundColor={theme.colors.secondary} IsInCircle />,
   },
 ]
 
@@ -41,7 +48,7 @@ export default function AccountScreen() {
       </View>
       <ListItem
         title={"Log Out"}
-        Icon={<Icon name="logout" size={50} backgroundColor={theme.colors.yellow} />}
+        Icon={<Icon name="logout" size={50} backgroundColor={theme.colors.yellow} IsInCircle />}
         style={styles.logout}
       />
     </Screen>
@@ -50,8 +57,6 @@ export default function AccountScreen() {
 
 const styles = StyleSheet.create({
   accountScreen: {
-    borderWidth: 1,
-    borderColor: "red",
     flex: 1,
   },
   profileItem: {},

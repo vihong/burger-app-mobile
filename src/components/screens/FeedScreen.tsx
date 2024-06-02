@@ -4,7 +4,6 @@ import { FlatList, StyleSheet, View } from "react-native"
 import { ProductType } from "../../types/ListItem"
 import Screen from "../designSystem/atoms/Screen"
 import Button from "../designSystem/atoms/Button"
-import Text from "../designSystem/atoms/Text"
 
 const fakeProducts: ProductType[] = [
   {

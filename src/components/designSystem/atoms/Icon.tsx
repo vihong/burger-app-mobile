@@ -3,13 +3,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { OpaqueColorValue, StyleSheet, View } from "react-native"
 import { theme } from "../../../style/theme"
 
-type MaterialCommunityIconName = keyof typeof MaterialCommunityIcons.glyphMap
+export type MaterialCommunityIconName = keyof typeof MaterialCommunityIcons.glyphMap
 
 export type IconProps = {
   name: MaterialCommunityIconName
   size?: number
   backgroundColor?: string | OpaqueColorValue
   color?: string | OpaqueColorValue
+  IsInCircle?: boolean
 }
 
 export default function Icon({
@@ -17,6 +18,7 @@ export default function Icon({
   size = 24,
   color = theme.colors.white,
   backgroundColor = theme.colors.black,
+  IsInCircle,
 }: IconProps) {
   const styles = StyleSheet.create({
     iconContainerStyle: {
@@ -29,9 +31,12 @@ export default function Icon({
     },
   })
 
-  return (
-    <View style={styles.iconContainerStyle}>
-      <MaterialCommunityIcons name={name} size={size / 2} color={color} />
-    </View>
-  )
+  if (IsInCircle)
+    return (
+      <View style={styles.iconContainerStyle}>
+        <MaterialCommunityIcons name={name} size={size / 2} color={color} />
+      </View>
+    )
+
+  return <MaterialCommunityIcons name={name} size={size} color={color} />
 }
