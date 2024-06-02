@@ -10,10 +10,11 @@ import StackNavigator from "./src/components/navigators/StackNavigator"
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView>
+      {/* maybe add to GestureHandlerRootView style={{ flex: 1 }} */}
       <NavigationContainer>
-        <StackNavigator />
-        {/* <TabNavigator /> */}
+        {/* <StackNavigator /> */}
+        <TabNavigator />
       </NavigationContainer>
     </GestureHandlerRootView>
   )

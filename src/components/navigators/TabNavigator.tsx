@@ -24,21 +24,14 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         ...tabNavigatorOptions,
-        tabBarIcon: ({ size, color }) => {
-          return <Icon name={iconNames[route.name as RouteName]} size={size} color={color} />
-        },
-        tabBarStyle: {
-          backgroundColor: theme.colors.grey,
-        },
+        tabBarIcon: ({ size, color }) => (
+          <Icon name={iconNames[route.name as RouteName]} size={size} color={color} />
+        ),
       })}
     >
       <Tab.Screen name="Home" component={WelcomeScreen} />
       <Tab.Screen name="Feed" component={FeedScreen} />
-      <Tab.Screen
-        name="Account"
-        component={AccountScreen}
-        // tabBarIcon: ({ size, color }) => <Icon name="account" size={size} color={color} />,
-      />
+      <Tab.Screen name="Account" component={AccountScreen} />
       <Tab.Screen
         name="Settings"
         component={SettingsScreen}
@@ -61,4 +54,5 @@ const tabNavigatorOptions = {
   tabBarInactiveBackgroundColor: theme.colors.grey,
   tabBarInactiveTintColor: "#000",
   headerShown: false,
+  tabBarStyle: { backgroundColor: theme.colors.grey },
 }
