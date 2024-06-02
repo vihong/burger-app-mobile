@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react"
-import WelcomeScreen from "../screens/WelcomeScreen"
 import FeedScreen from "../screens/FeedScreen"
 import AccountScreen from "../screens/AccountScreen"
 import Icon, { MaterialCommunityIconName } from "../designSystem/atoms/Icon"
 import Ionicons from "@expo/vector-icons/Ionicons"
 import { theme } from "../../style/theme"
 import SettingsScreen from "../screens/SettingsScreen"
+import StackNavigator from "./StackNavigator"
 
 const Tab = createBottomTabNavigator()
 
@@ -35,7 +35,7 @@ export default function TabNavigator() {
         ),
       })}
     >
-      <Tab.Screen name="Home" component={WelcomeScreen} />
+      <Tab.Screen name="Home" component={StackNavigator} />
       <Tab.Screen name="Feed" component={FeedScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />
       <Tab.Screen
