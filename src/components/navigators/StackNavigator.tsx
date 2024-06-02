@@ -8,12 +8,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function StackNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: true }} initialRouteName="Welcome">
-      <Stack.Screen
-        name="Welcome"
-        component={WelcomeScreen}
-        options={{ headerStyle: { backgroundColor: "tomato" } }}
-      />
+    <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen
         name="Feed"
         component={FeedScreen}
