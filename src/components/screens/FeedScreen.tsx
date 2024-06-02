@@ -24,7 +24,7 @@ type FeedScreenProps = {
   navigation: any
 }
 
-export default function FeedScreen({ navigation, route }: FeedScreenProps) {
+export default function FeedScreen({ navigation }: FeedScreenProps) {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [products, setProducts] = useState(fakeProducts)
 

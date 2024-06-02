@@ -12,8 +12,8 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
-        {/* <StackNavigator /> */}
-        <TabNavigator />
+        <StackNavigator />
+        {/* <TabNavigator /> */}
       </NavigationContainer>
     </GestureHandlerRootView>
   )

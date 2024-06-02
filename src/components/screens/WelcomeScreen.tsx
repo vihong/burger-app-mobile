@@ -12,7 +12,6 @@ type WelcomeScreenProps = {
 
 export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
   const handleLogin = () => {
-    console.log("navigation: ", navigation)
     navigation.navigate("Feed", { name: "Jaimie" })
   }
 
