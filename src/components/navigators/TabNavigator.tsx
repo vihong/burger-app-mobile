@@ -12,11 +12,13 @@ const Tab = createBottomTabNavigator()
 
 type RouteName = "Home" | "Feed" | "Account" | "Settings"
 
-const iconNames: Record<RouteName, MaterialCommunityIconName> = {
-  Home: "home-variant",
-  Feed: "magnify",
-  Account: "account",
-  Settings: "home-variant",
+type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
+
+const iconNames: Record<RouteName, IconValues> = {
+  Home: ["home-variant", "home-variant-outline"],
+  Feed: ["magnify-minus", "magnify-plus"],
+  Account: ["account", "account-outline"],
+  Settings: ["account", "account-outline"],
 }
 
 export default function TabNavigator() {
@@ -24,8 +26,12 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         ...tabNavigatorOptions,
-        tabBarIcon: ({ size, color }) => (
-          <Icon name={iconNames[route.name as RouteName]} size={size} color={color} />
+        tabBarIcon: ({ size, color, focused }) => (
+          <Icon
+            name={iconNames[route.name as RouteName][focused ? 0 : 1]}
+            size={size}
+            color={color}
+          />
         ),
       })}
     >
