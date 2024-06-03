@@ -3,12 +3,12 @@ import styled from "styled-components/native"
 import Logo from "../designSystem/atoms/Logo"
 import { theme } from "../../style/theme"
 import Button from "../designSystem/atoms/Button"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { RootStackParamList } from "../../types/navigation"
 
 const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 
-type WelcomeScreenProps = {
-  navigation: any
-}
+type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">
 
 export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
   const handleLogin = () => {
