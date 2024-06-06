@@ -8,7 +8,14 @@ import { theme } from "../../style/theme"
 import SettingsScreen from "../screens/SettingsScreen"
 import StackNavigator from "./StackNavigator"
 
-const Tab = createBottomTabNavigator()
+export type RootTabParamList = {
+  Home: undefined
+  Feed: undefined
+  Account: undefined
+  Settings: undefined
+}
+
+const Tab = createBottomTabNavigator<RootTabParamList>()
 
 type RouteName = "Home" | "Feed" | "Account" | "Settings"
 

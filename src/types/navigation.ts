@@ -5,7 +5,7 @@ export type FeedScreenParams = {
 }
 
 export type RootStackParamList = {
-  Home: undefined
+  Welcome: undefined
   Feed: FeedScreenParams
 }
 

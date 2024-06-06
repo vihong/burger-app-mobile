@@ -48,7 +48,10 @@ export default function FeedScreen({ navigation }: FeedScreenProps) {
           refreshing={isRefreshing}
           onRefresh={handleRefresh}
         />
-        <Button title="Retourner à l'écran d'accueil" onPress={() => navigation.navigate("Home")} />
+        <Button
+          title="Retourner à l'écran d'accueil"
+          onPress={() => navigation.navigate("Welcome")}
+        />
       </View>
     </Screen>
   )

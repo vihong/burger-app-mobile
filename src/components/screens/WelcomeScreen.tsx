@@ -8,7 +8,7 @@ import { RootStackParamList } from "../../types/navigation"
 
 const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 
-type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">
+type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList, "Welcome">
 
 export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
   const handleLogin = () => {
