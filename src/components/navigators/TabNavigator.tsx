@@ -9,7 +9,6 @@ import SettingsScreen from "../screens/SettingsScreen"
 import StackNavigator from "./StackNavigator"
 
 export type RootTabParamList = {
-  Home: undefined
   Feed: undefined | { name?: string }
   Account: undefined
   Settings: undefined
@@ -22,7 +21,6 @@ type TabName = keyof RootTabParamList
 type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 
 const iconNames: Record<TabName, IconValues> = {
-  Home: ["home-variant", "home-variant-outline"],
   Feed: ["magnify-minus", "magnify-plus"],
   Account: ["account", "account-outline"],
   Settings: ["account", "account-outline"],
@@ -42,7 +40,6 @@ export default function TabNavigator() {
         ),
       })}
     >
-      <Tab.Screen name="Home" component={StackNavigator} />
       <Tab.Screen name="Feed" component={FeedScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />
       <Tab.Screen
