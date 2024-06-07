@@ -17,11 +17,11 @@ export type RootTabParamList = {
 
 const Tab = createBottomTabNavigator<RootTabParamList>()
 
-type RouteName = "Home" | "Feed" | "Account" | "Settings"
+type TabName = "Home" | "Feed" | "Account" | "Settings"
 
 type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 
-const iconNames: Record<RouteName, IconValues> = {
+const iconNames: Record<TabName, IconValues> = {
   Home: ["home-variant", "home-variant-outline"],
   Feed: ["magnify-minus", "magnify-plus"],
   Account: ["account", "account-outline"],
@@ -35,7 +35,7 @@ export default function TabNavigator() {
         ...tabNavigatorOptions,
         tabBarIcon: ({ size, color, focused }) => (
           <Icon
-            name={iconNames[route.name as RouteName][focused ? 0 : 1]}
+            name={iconNames[route.name as TabName][focused ? 0 : 1]}
             size={size}
             color={color}
           />

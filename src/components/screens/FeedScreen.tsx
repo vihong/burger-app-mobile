@@ -1,28 +1,13 @@
 import React, { useState } from "react"
 import Card from "../designSystem/molecules/Card"
 import { FlatList, StyleSheet, View } from "react-native"
-import { ProductType } from "../../types/ListItem"
 import Screen from "../designSystem/atoms/Screen"
 import Button from "../designSystem/atoms/Button"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { RootStackParamList } from "../../types/navigation"
+import { fakeProducts } from "../../constants/fakeData"
 
-const fakeProducts: ProductType[] = [
-  {
-    id: 1,
-    title: "Red jacket for sale!",
-    price: 100,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 2,
-    title: "Couch in great condition!",
-    price: 900,
-    image: require("../../assets/couch.jpg"),
-  },
-]
-
-type FeedScreenProps = {
-  navigation: any
-}
+export type FeedScreenProps = NativeStackScreenProps<RootStackParamList, "Feed">
 
 export default function FeedScreen({ navigation }: FeedScreenProps) {
   const [isRefreshing, setIsRefreshing] = useState(false)
