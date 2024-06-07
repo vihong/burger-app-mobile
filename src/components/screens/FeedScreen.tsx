@@ -4,8 +4,8 @@ import { FlatList, StyleSheet, View } from "react-native"
 import Screen from "../designSystem/atoms/Screen"
 import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { RootStackParamList } from "../../types/navigation"
 import { fakeProducts } from "../../constants/fakeData"
+import { RootStackParamList } from "../navigators/StackNavigator"
 
 export type FeedScreenProps = NativeStackScreenProps<RootStackParamList, "Feed">
 
@@ -32,10 +32,6 @@ export default function FeedScreen({ navigation }: FeedScreenProps) {
           )}
           refreshing={isRefreshing}
           onRefresh={handleRefresh}
-        />
-        <Button
-          title="Retourner à l'écran d'accueil"
-          onPress={() => navigation.navigate("Welcome")}
         />
       </View>
     </Screen>

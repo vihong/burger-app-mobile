@@ -4,15 +4,19 @@ import Logo from "../designSystem/atoms/Logo"
 import { theme } from "../../style/theme"
 import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { RootStackParamList } from "../../types/navigation"
+import { AuthRootStackParamList } from "../navigators/AuthNavigator"
 
 const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 
-type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList, "Welcome">
+type WelcomeScreenProps = NativeStackScreenProps<AuthRootStackParamList, "Welcome">
 
 export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
   const handleLogin = () => {
-    navigation.navigate("Feed", { name: "Jaimie" })
+    navigation.navigate("Login")
+  }
+
+  const handleRegister = () => {
+    navigation.navigate("Register")
   }
 
   return (
@@ -26,7 +30,11 @@ export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
       </LogoContainer>
       <ButtonsStyled>
         <Button title="Login" onPress={handleLogin} />
-        <Button title="Register" onPress={() => {}} backgroundColor={theme.colors.secondary} />
+        <Button
+          title="Register"
+          onPress={handleRegister}
+          backgroundColor={theme.colors.secondary}
+        />
       </ButtonsStyled>
     </WelcomeScreenStyled>
   )
