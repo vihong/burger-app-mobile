@@ -1,4 +1,4 @@
 export type RootStackParamList = {
   Welcome: undefined
-  Feed: undefined
+  Feed: { name: string }
 }

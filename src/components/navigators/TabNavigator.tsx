@@ -10,7 +10,7 @@ import StackNavigator from "./StackNavigator"
 
 export type RootTabParamList = {
   Home: undefined
-  Feed: undefined
+  Feed: { name: string }
   Account: undefined
   Settings: undefined
 }
