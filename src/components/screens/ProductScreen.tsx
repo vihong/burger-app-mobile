@@ -4,17 +4,23 @@ import Text from "../designSystem/atoms/Text"
 import { Image, StyleSheet, View } from "react-native"
 import { theme } from "../../style/theme"
 import ListItem from "../designSystem/molecules/ListItem"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { FeedStackParamList } from "../navigators/FeedNavigator"
 
-export default function ProductScreen() {
+type ProductScreenProps = NativeStackScreenProps<FeedStackParamList, "ProductScreen">
+
+export default function ProductScreen({ route }: ProductScreenProps) {
+  const { product } = route.params
+
   return (
     <ProductScreenStyled>
-      <Image style={styles.image} source={require("../../assets/jacket.jpg")} resizeMode="cover" />
+      <Image style={styles.image} source={product.image} resizeMode="cover" />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Red jacket for sale!</Text>
-        <Text style={styles.subtitle}>$100</Text>
+        <Text style={styles.title}>{product.title}</Text>
+        <Text style={styles.subtitle}>${product.price}</Text>
       </View>
       <ListItem
-        title="Mosh Hamedani"
+        title={product.owner?.username}
         subtitle="5 products"
         imageSource={require("../../assets/mosh.jpg")}
       />

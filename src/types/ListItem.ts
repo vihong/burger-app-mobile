@@ -8,11 +8,18 @@ export type RenderRightActionsType = (
   swipeable: Swipeable
 ) => React.ReactNode
 
+type Owner = {
+  username: string
+  profilPicture: ImageSourcePropType
+  productsQuantity: number
+}
+
 export type ListItemType = {
   id: number
   title: string
   subtitle: string
   image: ImageSourcePropType
+  owner?: Owner
 }
 
 export type ProductType = {
@@ -20,4 +27,5 @@ export type ProductType = {
   title: string
   price: number
   image: ImageSourcePropType
+  owner?: Owner
 }

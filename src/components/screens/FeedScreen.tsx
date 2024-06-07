@@ -27,7 +27,7 @@ export default function FeedScreen({ navigation }: FeedScreenProps) {
               title={product.title}
               subtitle={`$${product.price}`}
               imageSource={product.image}
-              onPress={() => navigation.navigate("ProductScreen")}
+              onPress={() => navigation.navigate("ProductScreen", { product })}
             />
           )}
           refreshing={isRefreshing}

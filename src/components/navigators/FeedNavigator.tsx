@@ -3,10 +3,11 @@ import React from "react"
 import FeedScreen from "../screens/FeedScreen"
 import ProductScreen from "../screens/ProductScreen"
 import ViewImageScreen from "../screens/ViewImageScreen"
+import { ProductType } from "../../types/ListItem"
 
 export type FeedStackParamList = {
   FeedScreen: undefined
-  ProductScreen: undefined
+  ProductScreen: { product: ProductType }
   ViewImageScreen: undefined
 }
 

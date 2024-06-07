@@ -17,7 +17,7 @@ import { RenderRightActionsType } from "../../../types/ListItem"
 import { IconProps } from "../atoms/Icon"
 
 type ListItemProps = {
-  title: string
+  title?: string
   subtitle?: string
   imageSource?: ImageSourcePropType
   onPress?: (event: GestureResponderEvent) => void
