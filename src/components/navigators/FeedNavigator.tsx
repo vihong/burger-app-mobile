@@ -20,9 +20,13 @@ export default function FeedNavigator() {
       <FeedStack.Screen
         name="ProductScreen"
         component={ProductScreen}
-        options={{ title: "Product infos" }}
+        options={{ title: "Product infos", headerShown: false }}
       />
-      <FeedStack.Screen name="ViewImageScreen" component={ViewImageScreen} />
+      <FeedStack.Screen
+        name="ViewImageScreen"
+        component={ViewImageScreen}
+        options={{ presentation: "modal", headerShown: false }}
+      />
     </FeedStack.Navigator>
   )
 }

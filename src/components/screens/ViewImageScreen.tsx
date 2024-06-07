@@ -7,9 +7,9 @@ import Icon from "../designSystem/atoms/Icon"
 export default function ViewImageScreen() {
   return (
     <ViewImageScreenStyled>
-      <View style={styles.iconClose}>
+      {/* <View style={styles.iconClose}>
         <Icon name="close" size={40} color="white" />
-      </View>
+      </View> */}
       <View style={styles.iconTrash}>
         <Icon name="trash-can-outline" size={40} color="white" />
       </View>
