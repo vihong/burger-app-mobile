@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react"
-import AccountScreen from "../../screens/AccountScreen"
 import Icon, { MaterialCommunityIconName } from "../../designSystem/atoms/Icon"
 import Ionicons from "@expo/vector-icons/Ionicons"
 import { theme } from "../../../style/theme"
