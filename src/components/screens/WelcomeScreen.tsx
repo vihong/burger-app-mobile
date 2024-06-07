@@ -8,15 +8,15 @@ import { AuthRootStackParamList } from "../navigators/AuthNavigator"
 
 const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 
-type WelcomeScreenProps = NativeStackScreenProps<AuthRootStackParamList, "Welcome">
+type WelcomeScreenProps = NativeStackScreenProps<AuthRootStackParamList, "WelcomeScreen">
 
 export default function WelcomeScreen({ navigation }: WelcomeScreenProps) {
   const handleLogin = () => {
-    navigation.navigate("Login")
+    navigation.navigate("LoginScreen")
   }
 
   const handleRegister = () => {
-    navigation.navigate("Register")
+    navigation.navigate("RegisterScreen")
   }
 
   return (

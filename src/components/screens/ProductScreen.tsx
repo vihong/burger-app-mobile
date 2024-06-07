@@ -23,7 +23,6 @@ export default function ProductScreen() {
 }
 
 const ProductScreenStyled = styled.View`
-  border: 1px solid red;
   flex: 1;
   background-color: ${theme.colors.white};
 `

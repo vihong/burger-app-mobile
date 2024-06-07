@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components/native"
-import { ImageSourcePropType, StyleSheet } from "react-native"
+import { ImageSourcePropType, StyleSheet, TouchableOpacityProps } from "react-native"
 import Text from "../atoms/Text"
 import { theme } from "../../../style/theme"
 
@@ -8,11 +8,11 @@ type CardProps = {
   title: string
   subtitle: string
   imageSource: ImageSourcePropType
-}
+} & TouchableOpacityProps
 
-export default function Card({ title, subtitle, imageSource }: CardProps) {
+export default function Card({ title, subtitle, imageSource, ...restProps }: CardProps) {
   return (
-    <CardStyle>
+    <CardStyle {...restProps}>
       <ImageStyled source={imageSource} resizeMode="cover" />
       <TextContainer>
         <Text style={styles.title}>{title}</Text>
@@ -22,7 +22,7 @@ export default function Card({ title, subtitle, imageSource }: CardProps) {
   )
 }
 
-const CardStyle = styled.View`
+const CardStyle = styled.TouchableOpacity`
   background: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRounded}px;
   overflow: hidden;

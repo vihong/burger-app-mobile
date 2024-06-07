@@ -1,17 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react"
-import FeedScreen from "../screens/FeedScreen"
 import AccountScreen from "../screens/AccountScreen"
 import Icon, { MaterialCommunityIconName } from "../designSystem/atoms/Icon"
 import Ionicons from "@expo/vector-icons/Ionicons"
 import { theme } from "../../style/theme"
 import SettingsScreen from "../screens/SettingsScreen"
-import StackNavigator from "./StackNavigator"
+import FeedNavigator from "./FeedNavigator"
 
 export type RootTabParamList = {
-  Feed: undefined | { name?: string }
-  Account: undefined
-  Settings: undefined
+  FeedNavigator: undefined | { name?: string }
+  AccountScreen: undefined
+  SettingsScreen: undefined
 }
 
 const Tab = createBottomTabNavigator<RootTabParamList>()
@@ -21,9 +20,9 @@ type TabName = keyof RootTabParamList
 type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 
 const iconNames: Record<TabName, IconValues> = {
-  Feed: ["magnify-minus", "magnify-plus"],
-  Account: ["account", "account-outline"],
-  Settings: ["account", "account-outline"],
+  FeedNavigator: ["magnify-minus", "magnify-plus"],
+  AccountScreen: ["account", "account-outline"],
+  SettingsScreen: ["account", "account-outline"],
 }
 
 export default function TabNavigator() {
@@ -40,10 +39,10 @@ export default function TabNavigator() {
         ),
       })}
     >
-      <Tab.Screen name="Feed" component={FeedScreen} />
-      <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen name="FeedNavigator" component={FeedNavigator} options={{ title: "Feed" }} />
+      <Tab.Screen name="AccountScreen" component={AccountScreen} />
       <Tab.Screen
-        name="Settings"
+        name="SettingsScreen"
         component={SettingsScreen}
         options={{
           tabBarIcon: ({ size, color, focused }) => (

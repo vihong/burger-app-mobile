@@ -5,9 +5,9 @@ import RegisterScreen from "../screens/RegisterScreen"
 import LoginScreen from "../screens/LoginScreen"
 
 export type AuthRootStackParamList = {
-  Welcome: undefined
-  Login: undefined
-  Register: undefined
+  WelcomeScreen: undefined
+  LoginScreen: undefined
+  RegisterScreen: undefined
 }
 
 const AuthStack = createNativeStackNavigator<AuthRootStackParamList>()
@@ -16,12 +16,12 @@ export default function AuthNavigator() {
   return (
     <AuthStack.Navigator>
       <AuthStack.Screen
-        name="Welcome"
+        name="WelcomeScreen"
         component={WelcomeScreen}
         options={{ headerShown: false }}
-      ></AuthStack.Screen>
-      <AuthStack.Screen name="Login" component={LoginScreen}></AuthStack.Screen>
-      <AuthStack.Screen name="Register" component={RegisterScreen}></AuthStack.Screen>
+      />
+      <AuthStack.Screen name="LoginScreen" component={LoginScreen} />
+      <AuthStack.Screen name="RegisterScreen" component={RegisterScreen} />
     </AuthStack.Navigator>
   )
 }
