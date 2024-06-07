@@ -17,7 +17,7 @@ export type RootTabParamList = {
 
 const Tab = createBottomTabNavigator<RootTabParamList>()
 
-type TabName = "Home" | "Feed" | "Account" | "Settings"
+type TabName = keyof RootTabParamList
 
 type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 
