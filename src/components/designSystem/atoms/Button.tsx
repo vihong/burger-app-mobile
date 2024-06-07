@@ -1,5 +1,11 @@
 import React from "react"
-import { GestureResponderEvent, StyleProp, TextStyle, ViewStyle } from "react-native"
+import {
+  GestureResponderEvent,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+  TouchableOpacityProps,
+} from "react-native"
 import styled from "styled-components/native"
 import { theme } from "../../../style/theme"
 
@@ -9,7 +15,7 @@ type ButtonProps = {
   textStyle?: StyleProp<TextStyle>
   backgroundStyle?: StyleProp<ViewStyle>
   backgroundColor?: string
-}
+} & TouchableOpacityProps
 
 export default function Button({ title, onPress, textStyle, backgroundColor }: ButtonProps) {
   return (

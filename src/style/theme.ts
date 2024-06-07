@@ -13,6 +13,15 @@ const colors = {
   tomato: "#ea686b",
 }
 
+type Size = "XS" | "S" | "M" | "L" | "titleXS" | "titleS" | "titleM" | "titleL" | "titleXL"
+
+type FontType = {
+  fontSize: number
+  lineHeight: number
+}
+
+type Fonts = Record<Size, FontType>
+
 const fonts: Fonts = {
   XS: {
     fontSize: 10,
@@ -91,13 +100,4 @@ export const theme = {
   blurRadius,
   weights,
   borderRadius,
-}
-
-type FontType = {
-  fontSize: number
-  lineHeight: number
-}
-
-type Fonts = {
-  [key: string]: FontType
 }

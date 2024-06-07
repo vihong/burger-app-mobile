@@ -1,18 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react"
-import FeedScreen from "../screens/FeedScreen"
-import AccountScreen from "../screens/AccountScreen"
-import Icon, { MaterialCommunityIconName } from "../designSystem/atoms/Icon"
+import Icon, { MaterialCommunityIconName } from "../../designSystem/atoms/Icon"
 import Ionicons from "@expo/vector-icons/Ionicons"
-import { theme } from "../../style/theme"
-import SettingsScreen from "../screens/SettingsScreen"
-import StackNavigator from "./StackNavigator"
+import { theme } from "../../../style/theme"
+import SettingsScreen from "../../screens/SettingsScreen"
+import FeedNavigator from "../screenNavigators/FeedNavigator"
+import AccountNavigator from "../screenNavigators/AccountNavigator"
 
 export type RootTabParamList = {
-  Home: undefined
-  Feed: undefined
-  Account: undefined
-  Settings: undefined
+  FeedNavigator: undefined | { name?: string }
+  AccountNavigator: undefined
+  SettingsScreen: undefined
 }
 
 const Tab = createBottomTabNavigator<RootTabParamList>()
@@ -22,10 +20,9 @@ type TabName = keyof RootTabParamList
 type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 
 const iconNames: Record<TabName, IconValues> = {
-  Home: ["home-variant", "home-variant-outline"],
-  Feed: ["magnify-minus", "magnify-plus"],
-  Account: ["account", "account-outline"],
-  Settings: ["account", "account-outline"],
+  FeedNavigator: ["magnify-minus", "magnify-plus"],
+  AccountNavigator: ["account", "account-outline"],
+  SettingsScreen: ["account", "account-outline"],
 }
 
 export default function TabNavigator() {
@@ -42,13 +39,17 @@ export default function TabNavigator() {
         ),
       })}
     >
-      <Tab.Screen name="Home" component={StackNavigator} />
-      <Tab.Screen name="Feed" component={FeedScreen} />
-      <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen name="FeedNavigator" component={FeedNavigator} options={{ title: "Feed" }} />
       <Tab.Screen
-        name="Settings"
+        name="AccountNavigator"
+        component={AccountNavigator}
+        options={{ title: "Account" }}
+      />
+      <Tab.Screen
+        name="SettingsScreen"
         component={SettingsScreen}
         options={{
+          title: "Settings",
           tabBarIcon: ({ size, color, focused }) => (
             <Ionicons
               name={focused ? "settings-sharp" : "settings-outline"}

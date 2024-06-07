@@ -2,12 +2,11 @@ import React, { useState } from "react"
 import Card from "../designSystem/molecules/Card"
 import { FlatList, StyleSheet, View } from "react-native"
 import Screen from "../designSystem/atoms/Screen"
-import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { RootStackParamList } from "../../types/navigation"
 import { fakeProducts } from "../../constants/fakeData"
+import { FeedStackParamList } from "../navigators/screenNavigators/FeedNavigator"
 
-export type FeedScreenProps = NativeStackScreenProps<RootStackParamList, "Feed">
+export type FeedScreenProps = NativeStackScreenProps<FeedStackParamList, "FeedScreen">
 
 export default function FeedScreen({ navigation }: FeedScreenProps) {
   const [isRefreshing, setIsRefreshing] = useState(false)
@@ -28,14 +27,11 @@ export default function FeedScreen({ navigation }: FeedScreenProps) {
               title={product.title}
               subtitle={`$${product.price}`}
               imageSource={product.image}
+              onPress={() => navigation.navigate("ProductScreen", { product })}
             />
           )}
           refreshing={isRefreshing}
           onRefresh={handleRefresh}
-        />
-        <Button
-          title="Retourner à l'écran d'accueil"
-          onPress={() => navigation.navigate("Welcome")}
         />
       </View>
     </Screen>
