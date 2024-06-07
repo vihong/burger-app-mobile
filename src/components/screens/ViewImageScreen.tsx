@@ -1,23 +1,28 @@
 import React from "react"
-import { Platform, StatusBar, StyleSheet, View } from "react-native"
+import { Platform, StatusBar, StyleSheet, TouchableWithoutFeedback, View } from "react-native"
 import styled from "styled-components/native"
 import { theme } from "../../style/theme"
 import Icon from "../designSystem/atoms/Icon"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { FeedStackParamList } from "../navigators/screenNavigators/FeedNavigator"
+import Text from "../designSystem/atoms/Text"
 
 type ViewImageScreenProps = NativeStackScreenProps<FeedStackParamList, "ViewImageScreen">
 
-export default function ViewImageScreen({ route }: ViewImageScreenProps) {
+export default function ViewImageScreen({ navigation, route }: ViewImageScreenProps) {
   return (
     <ViewImageScreenStyled>
-      {/* <View style={styles.iconClose}>
-        <Icon name="close" size={40} color="white" />
-      </View> */}
-      <View style={styles.iconTrash}>
-        <Icon name="trash-can-outline" size={40} color="white" />
-      </View>
       <ImageStyled source={route.params.product.image} resizeMode="contain" />
+      <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+        <View style={styles.iconClose}>
+          <Text style={styles.fermer}>Close</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback>
+        <View style={styles.iconTrash}>
+          <Icon name="trash-can-outline" size={40} color="white" />
+        </View>
+      </TouchableWithoutFeedback>
     </ViewImageScreenStyled>
   )
 }
@@ -39,6 +44,16 @@ const styles = StyleSheet.create({
     left: 30,
     justifyContent: "center",
     alignItems: "center",
+  },
+  fermer: {
+    ...theme.fonts.L,
+    borderWidth: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: theme.borderRadius.rounded,
+
+    borderColor: theme.colors.primary,
+    color: theme.colors.primary,
   },
   iconTrash: {
     position: "absolute",
