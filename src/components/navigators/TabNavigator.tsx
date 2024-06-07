@@ -40,11 +40,12 @@ export default function TabNavigator() {
       })}
     >
       <Tab.Screen name="FeedNavigator" component={FeedNavigator} options={{ title: "Feed" }} />
-      <Tab.Screen name="AccountScreen" component={AccountScreen} />
+      <Tab.Screen name="AccountScreen" component={AccountScreen} options={{ title: "Account" }} />
       <Tab.Screen
         name="SettingsScreen"
         component={SettingsScreen}
         options={{
+          title: "Settings",
           tabBarIcon: ({ size, color, focused }) => (
             <Ionicons
               name={focused ? "settings-sharp" : "settings-outline"}
