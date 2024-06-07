@@ -6,10 +6,11 @@ import Ionicons from "@expo/vector-icons/Ionicons"
 import { theme } from "../../../style/theme"
 import SettingsScreen from "../../screens/SettingsScreen"
 import FeedNavigator from "../screenNavigators/FeedNavigator"
+import AccountNavigator from "../screenNavigators/AccountNavigator"
 
 export type RootTabParamList = {
   FeedNavigator: undefined | { name?: string }
-  AccountScreen: undefined
+  AccountNavigator: undefined
   SettingsScreen: undefined
 }
 
@@ -21,7 +22,7 @@ type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 
 const iconNames: Record<TabName, IconValues> = {
   FeedNavigator: ["magnify-minus", "magnify-plus"],
-  AccountScreen: ["account", "account-outline"],
+  AccountNavigator: ["account", "account-outline"],
   SettingsScreen: ["account", "account-outline"],
 }
 
@@ -40,7 +41,11 @@ export default function TabNavigator() {
       })}
     >
       <Tab.Screen name="FeedNavigator" component={FeedNavigator} options={{ title: "Feed" }} />
-      <Tab.Screen name="AccountScreen" component={AccountScreen} options={{ title: "Account" }} />
+      <Tab.Screen
+        name="AccountNavigator"
+        component={AccountNavigator}
+        options={{ title: "Account" }}
+      />
       <Tab.Screen
         name="SettingsScreen"
         component={SettingsScreen}
