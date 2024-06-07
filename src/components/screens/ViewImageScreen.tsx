@@ -3,8 +3,12 @@ import { Platform, StatusBar, StyleSheet, View } from "react-native"
 import styled from "styled-components/native"
 import { theme } from "../../style/theme"
 import Icon from "../designSystem/atoms/Icon"
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { FeedStackParamList } from "../navigators/screenNavigators/FeedNavigator"
 
-export default function ViewImageScreen() {
+type ViewImageScreenProps = NativeStackScreenProps<FeedStackParamList, "ViewImageScreen">
+
+export default function ViewImageScreen({ route }: ViewImageScreenProps) {
   return (
     <ViewImageScreenStyled>
       {/* <View style={styles.iconClose}>
@@ -13,7 +17,7 @@ export default function ViewImageScreen() {
       <View style={styles.iconTrash}>
         <Icon name="trash-can-outline" size={40} color="white" />
       </View>
-      <ImageStyled source={require("../../assets/chair.jpg")} resizeMode="contain" />
+      <ImageStyled source={route.params.product.image} resizeMode="contain" />
     </ViewImageScreenStyled>
   )
 }

@@ -8,7 +8,7 @@ import { ProductType } from "../../../types/ListItem"
 export type FeedStackParamList = {
   FeedScreen: undefined
   ProductScreen: { product: ProductType }
-  ViewImageScreen: undefined
+  ViewImageScreen: { product: ProductType }
 }
 
 const FeedStack = createNativeStackNavigator<FeedStackParamList>()

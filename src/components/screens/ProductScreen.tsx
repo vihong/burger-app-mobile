@@ -15,7 +15,7 @@ export default function ProductScreen({ route, navigation }: ProductScreenProps)
 
   return (
     <ProductScreenStyled>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate("ViewImageScreen")}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("ViewImageScreen", { product })}>
         <Image style={styles.image} source={product.image} resizeMode="cover" />
       </TouchableWithoutFeedback>
       <View style={styles.textContainer}>
