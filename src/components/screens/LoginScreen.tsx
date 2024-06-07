@@ -3,7 +3,7 @@ import Text from "../designSystem/atoms/Text"
 import Screen from "../designSystem/atoms/Screen"
 import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AuthRootStackParamList } from "../navigators/AuthNavigator"
+import { AuthRootStackParamList } from "../navigators/screenNavigators/AuthNavigator"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 

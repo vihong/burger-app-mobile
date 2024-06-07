@@ -5,7 +5,7 @@ import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native"
 import { theme } from "../../style/theme"
 import ListItem from "../designSystem/molecules/ListItem"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { FeedStackParamList } from "../navigators/FeedNavigator"
+import { FeedStackParamList } from "../navigators/screenNavigators/FeedNavigator"
 import { TouchableOpacity } from "react-native-gesture-handler"
 
 type ProductScreenProps = NativeStackScreenProps<FeedStackParamList, "ProductScreen">

@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react"
-import AccountScreen from "../screens/AccountScreen"
-import Icon, { MaterialCommunityIconName } from "../designSystem/atoms/Icon"
+import AccountScreen from "../../screens/AccountScreen"
+import Icon, { MaterialCommunityIconName } from "../../designSystem/atoms/Icon"
 import Ionicons from "@expo/vector-icons/Ionicons"
-import { theme } from "../../style/theme"
-import SettingsScreen from "../screens/SettingsScreen"
-import FeedNavigator from "./FeedNavigator"
+import { theme } from "../../../style/theme"
+import SettingsScreen from "../../screens/SettingsScreen"
+import FeedNavigator from "../screenNavigators/FeedNavigator"
 
 export type RootTabParamList = {
   FeedNavigator: undefined | { name?: string }

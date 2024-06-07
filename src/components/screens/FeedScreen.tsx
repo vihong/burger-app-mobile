@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, View } from "react-native"
 import Screen from "../designSystem/atoms/Screen"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { fakeProducts } from "../../constants/fakeData"
-import { FeedStackParamList } from "../navigators/FeedNavigator"
+import { FeedStackParamList } from "../navigators/screenNavigators/FeedNavigator"
 
 export type FeedScreenProps = NativeStackScreenProps<FeedStackParamList, "FeedScreen">
 

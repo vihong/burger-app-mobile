@@ -4,7 +4,7 @@ import Logo from "../designSystem/atoms/Logo"
 import { theme } from "../../style/theme"
 import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AuthRootStackParamList } from "../navigators/AuthNavigator"
+import { AuthRootStackParamList } from "../navigators/screenNavigators/AuthNavigator"
 
 const WELCOME_SCREEN_BACKGROUND_PICTURE = "../../assets/login-background.jpg"
 

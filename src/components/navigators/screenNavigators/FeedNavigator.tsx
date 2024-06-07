@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import React from "react"
-import FeedScreen from "../screens/FeedScreen"
-import ProductScreen from "../screens/ProductScreen"
-import ViewImageScreen from "../screens/ViewImageScreen"
-import { ProductType } from "../../types/ListItem"
+import FeedScreen from "../../screens/FeedScreen"
+import ProductScreen from "../../screens/ProductScreen"
+import ViewImageScreen from "../../screens/ViewImageScreen"
+import { ProductType } from "../../../types/ListItem"
 
 export type FeedStackParamList = {
   FeedScreen: undefined
