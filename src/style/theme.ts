@@ -10,6 +10,7 @@ const colors = {
   grey: "#f8f4f4",
   greyDark: "#7a7676",
   greyLight: "#f8f4f4",
+  greySemiDark: "#C7C7CD",
   yellow: "#fbe580",
   tomato: "#ea686b",
 }

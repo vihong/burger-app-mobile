@@ -23,6 +23,7 @@ type PickerProps<T extends PickerItemType> = {
   iconName?: MaterialCommunityIconName
   style?: ViewStyle
   itemByDefault?: T
+  numberOfColumns?: number
 } & TouchableWithoutFeedbackProps
 
 export default function Picker<T extends PickerItemType>({
@@ -31,6 +32,7 @@ export default function Picker<T extends PickerItemType>({
   style,
   items,
   itemByDefault,
+  numberOfColumns,
   ...restProps
 }: PickerProps<T>) {
   const [itemSelected, setItemSelected] = useState<PickerItemType | undefined>(itemByDefault)
@@ -41,19 +43,23 @@ export default function Picker<T extends PickerItemType>({
     setIsModalVisible(false)
   }
 
+  const getPlaceholderColor = () => {
+    return itemSelected ? theme.colors.dark : theme.colors.greySemiDark
+  }
+
   return (
     <>
       <TouchableWithoutFeedback {...restProps} onPress={() => setIsModalVisible(true)}>
-        <View style={textInputStyles.textInputContainer}>
+        <View style={styles.textInputContainer}>
           {iconName && (
             <Icon
-              style={[textInputStyles.icon, style]}
+              style={[styles.icon, style]}
               name={iconName}
               color={theme.colors.greyDark}
               size={30}
             />
           )}
-          <Text style={textInputStyles.textInput}>
+          <Text style={[styles.textInput, { color: getPlaceholderColor() }]}>
             {itemSelected ? itemSelected.label : placeholder}
           </Text>
           <Icon name={"chevron-down"} color={theme.colors.greyDark} size={30} />
@@ -66,6 +72,7 @@ export default function Picker<T extends PickerItemType>({
             <FlatList
               data={items}
               keyExtractor={(item) => item.id}
+              numColumns={numberOfColumns}
               renderItem={({ item }) => {
                 return (
                   <PickerItem
@@ -86,8 +93,13 @@ export default function Picker<T extends PickerItemType>({
 }
 
 const styles = StyleSheet.create({
+  ...textInputStyles,
   flatListContainer: {
-    flexDirection: "row",
+    // borderWidth: 1,
+    // borderColor: "blue",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 })
 

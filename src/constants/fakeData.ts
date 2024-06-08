@@ -1,5 +1,6 @@
 import { CategoryType } from "@/types/Picker"
 import { ProductType } from "../types/ListItem"
+import { theme } from "@/style/theme"
 
 export const fakeProducts: ProductType[] = [
   {
@@ -27,7 +28,10 @@ export const fakeProducts: ProductType[] = [
 ]
 
 export const categories: CategoryType[] = [
-  { id: "1", label: "Furniture", value: 1, iconColor: "red", iconName: "email" },
-  { id: "2", label: "Clothing", value: 2, iconColor: "yellow", iconName: "email" },
-  { id: "3", label: "Camera", value: 3, iconColor: "blue", iconName: "email" },
+  { id: "1", label: "Furniture", value: 1, iconColor: theme.colors.primary, iconName: "lamp" },
+  { id: "2", label: "Clothing", value: 2, iconColor: theme.colors.yellow, iconName: "car" },
+  { id: "3", label: "Camera", value: 3, iconColor: theme.colors.secondary, iconName: "camera" },
+  { id: "5", label: "Movies & music", value: 1, iconColor: theme.colors.dark, iconName: "film" },
+  { id: "6", label: "Clothing", value: 2, iconColor: "pink", iconName: "shoe-ballet" },
+  { id: "7", label: "Sports", value: 3, iconColor: "orange", iconName: "basketball" },
 ]

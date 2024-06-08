@@ -4,6 +4,7 @@ import { StyleSheet, View } from "react-native"
 import { PickerItemType } from "@/types/Picker"
 import Icon from "./Icon"
 import { TouchableWithoutFeedback, TouchableWithoutFeedbackProps } from "react-native"
+import { theme } from "@/style/theme"
 
 type PickerItemProps = PickerItemType & TouchableWithoutFeedbackProps
 
@@ -11,8 +12,8 @@ export default function PickerItem({ label, iconColor, iconName, ...restProps }:
   return (
     <TouchableWithoutFeedback {...restProps}>
       <View style={styles.container}>
-        <Text>{label}</Text>
-        <Icon name={iconName} backgroundColor={iconColor} IsInCircle size={40} />
+        <Icon name={iconName} backgroundColor={iconColor} IsInCircle size={80} />
+        <Text style={styles.text}>{label}</Text>
       </View>
     </TouchableWithoutFeedback>
   )
@@ -20,7 +21,19 @@ export default function PickerItem({ label, iconColor, iconName, ...restProps }:
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: "red",
+    // borderWidth: 1,
+    // borderColor: "red",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "33%",
+  },
+  text: {
+    marginTop: 5,
+    // borderWidth: 1,
+    // borderColor: "blue",
+    textAlign: "center",
+    fontWeight: theme.weights.semiBold,
   },
 })
