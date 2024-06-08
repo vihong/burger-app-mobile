@@ -6,14 +6,20 @@ import TextInput from "../designSystem/atoms/TextInput"
 import Text from "../designSystem/atoms/Text"
 import Picker from "../designSystem/atoms/Picker"
 import { categories } from "@/constants/fakeData"
+import { PickerItemType } from "@/types/Picker"
 
 export default function DraftScreen() {
   const [inputValue, setInputValue] = useState("")
+  const [itemSelected, setItemSelected] = useState<PickerItemType | undefined>(undefined)
 
   return (
     <Screen>
       {/* <Text>{inputValue}</Text> */}
-      <Picker placeholder="Choisissez une catégorie" items={categories} />
+      <Picker
+        placeholder="Choisissez une catégorie"
+        items={categories}
+        itemByDefault={categories[2]}
+      />
       <TextInput placeholder="Choisissez une catégorie" iconName="apps" />
     </Screen>
   )

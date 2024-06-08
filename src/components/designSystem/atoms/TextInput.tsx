@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.grey,
     flexDirection: "row",
+    alignItems: "center",
     padding: 15,
     marginVertical: 10,
     borderRadius: theme.borderRadius.maxRounded,

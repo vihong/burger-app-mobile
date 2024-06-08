@@ -22,6 +22,7 @@ type PickerProps<T extends PickerItemType> = {
   items: T[]
   iconName?: MaterialCommunityIconName
   style?: ViewStyle
+  itemByDefault?: T
 } & TouchableWithoutFeedbackProps
 
 export default function Picker<T extends PickerItemType>({
@@ -29,9 +30,16 @@ export default function Picker<T extends PickerItemType>({
   iconName = "apps",
   style,
   items,
+  itemByDefault,
   ...restProps
 }: PickerProps<T>) {
+  const [itemSelected, setItemSelected] = useState<PickerItemType | undefined>(itemByDefault)
   const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const handleSelectItem = (item: PickerItemType) => {
+    setItemSelected(item)
+    setIsModalVisible(false)
+  }
 
   return (
     <>
@@ -45,7 +53,9 @@ export default function Picker<T extends PickerItemType>({
               size={30}
             />
           )}
-          <Text style={textInputStyles.textInput}>{placeholder}</Text>
+          <Text style={textInputStyles.textInput}>
+            {itemSelected ? itemSelected.label : placeholder}
+          </Text>
           <Icon name={"chevron-down"} color={theme.colors.greyDark} size={30} />
         </View>
       </TouchableWithoutFeedback>
@@ -63,7 +73,7 @@ export default function Picker<T extends PickerItemType>({
                     label={item.label}
                     iconColor={item.iconColor}
                     iconName={item.iconName}
-                    onPress={() => console.log("PickerItem")}
+                    onPress={() => handleSelectItem(item)}
                   />
                 )
               }}

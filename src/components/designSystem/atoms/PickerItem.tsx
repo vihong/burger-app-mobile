@@ -3,10 +3,7 @@ import Text from "./Text"
 import { StyleSheet, View } from "react-native"
 import { PickerItemType } from "@/types/Picker"
 import Icon from "./Icon"
-import {
-  TouchableWithoutFeedback,
-  TouchableWithoutFeedbackProps,
-} from "react-native-gesture-handler"
+import { TouchableWithoutFeedback, TouchableWithoutFeedbackProps } from "react-native"
 
 type PickerItemProps = PickerItemType & TouchableWithoutFeedbackProps
 
