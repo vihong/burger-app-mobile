@@ -5,10 +5,12 @@ const colors = {
   danger: "#ff5252",
   secondary: "#4ecdc4",
   black: "#000",
+  dark: "#0c0c0c",
   white: "#fff",
   grey: "#f8f4f4",
   greyDark: "#7a7676",
   greyLight: "#f8f4f4",
+  greySemiDark: "#C7C7CD",
   yellow: "#fbe580",
   tomato: "#ea686b",
 }
