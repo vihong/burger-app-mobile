@@ -74,15 +74,7 @@ export default function Picker<T extends PickerItemType>({
               keyExtractor={(item) => item.id}
               numColumns={numberOfColumns}
               renderItem={({ item }) => {
-                return (
-                  <PickerItem
-                    id={item.id}
-                    label={item.label}
-                    iconColor={item.iconColor}
-                    iconName={item.iconName}
-                    onPress={() => handleSelectItem(item)}
-                  />
-                )
+                return <PickerItem {...item} onPress={() => handleSelectItem(item)} />
               }}
             />
           </View>

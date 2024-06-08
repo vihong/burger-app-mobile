@@ -18,7 +18,7 @@ export default function DraftScreen() {
       <Picker
         placeholder="Choisissez une catégorie"
         items={categories}
-        itemByDefault={categories[3]}
+        // itemByDefault={categories[3]}
         numberOfColumns={3}
       />
       <TextInput placeholder="Choisissez une catégorie" iconName="apps" />
