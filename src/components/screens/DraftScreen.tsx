@@ -1,17 +1,28 @@
-import styled from "styled-components/native"
-import Button from "../designSystem/atoms/Button"
+import { StyleSheet } from "react-native"
+import Screen from "../designSystem/atoms/Screen"
+import { theme } from "../../style/theme"
+import { useState } from "react"
+import TextInput from "../designSystem/atoms/TextInput"
+import Text from "../designSystem/atoms/Text"
 
 export default function DraftScreen() {
+  const [inputValue, setInputValue] = useState("")
+
   return (
-    <DraftScreenStyled>
-      <Button title="login" onPress={() => {}} />
-    </DraftScreenStyled>
+    <Screen>
+      {/* <Text>{inputValue}</Text> */}
+      <TextInput
+        value={inputValue}
+        onChange={(event) => setInputValue(event.nativeEvent.text)}
+        placeholder="Entrez votre nom"
+        style={styles.input}
+        clearButtonMode="while-editing"
+        iconName="email"
+      />
+    </Screen>
   )
 }
 
-const DraftScreenStyled = styled.SafeAreaView`
-  border: 1px solid red;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`
+const styles = StyleSheet.create({
+  input: {},
+})
