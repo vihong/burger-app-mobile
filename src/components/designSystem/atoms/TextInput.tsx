@@ -12,7 +12,7 @@ import { getPlatformFontFamily, theme } from "../../../style/theme"
 
 type TextInputProps = {
   iconName?: MaterialCommunityIconName
-  style: ViewStyle
+  style?: ViewStyle
 } & RNTextInputProps
 
 export default function TextInput({ iconName, style, ...restProps }: TextInputProps) {
@@ -31,7 +31,7 @@ export default function TextInput({ iconName, style, ...restProps }: TextInputPr
   )
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   textInputContainer: {
     borderWidth: 1,
     borderColor: theme.colors.grey,

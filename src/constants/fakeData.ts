@@ -1,3 +1,4 @@
+import { CategoryType } from "@/types/Picker"
 import { ProductType } from "../types/ListItem"
 
 export const fakeProducts: ProductType[] = [
@@ -23,4 +24,10 @@ export const fakeProducts: ProductType[] = [
       productsQuantity: 5,
     },
   },
+]
+
+export const categories: CategoryType[] = [
+  { id: "1", label: "Furniture", value: 1, iconColor: "red", iconName: "email" },
+  { id: "2", label: "Clothing", value: 2, iconColor: "yellow", iconName: "email" },
+  { id: "3", label: "Camera", value: 3, iconColor: "blue", iconName: "email" },
 ]
