@@ -54,7 +54,7 @@ export default function Picker<T extends PickerItemType>({
           {iconName && (
             <Icon
               style={[styles.icon, style]}
-              name={iconName}
+              name={itemSelected ? itemSelected.iconName : iconName}
               color={theme.colors.greyDark}
               size={30}
             />
