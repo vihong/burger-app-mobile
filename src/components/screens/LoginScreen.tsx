@@ -7,9 +7,8 @@ import Logo from "../designSystem/atoms/Logo"
 import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from "react-native"
 import TextInput from "../designSystem/atoms/TextInput"
 import { Formik } from "formik"
-import Text from "../designSystem/atoms/Text"
-import { theme } from "@/style/theme"
 import { validationSchema } from "@/utils/validation"
+import ErrorMessage from "../designSystem/molecules/ErrorMessage"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 
@@ -23,8 +22,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   type HandleChangeFormik = (value: string) => void
 
   const handleChangeReactNative = (handleChangeFormik: HandleChangeFormik) => {
-    let qqchTantQueCestUneString: string // tant que c'est les noms des champs de notre form
-    return (event: ChangeEventReactNative) => handleChangeFormik(qqchTantQueCestUneString)
+    // pense bien à transvaser le contenu du event.nativeEvent.text into les paramètres handleChangeFormik
+    return (event: ChangeEventReactNative) => handleChangeFormik(event.nativeEvent.text)
   }
 
   return (
@@ -48,7 +47,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
               autoCorrect={false}
               autoComplete="email"
             />
-            <Text style={styles.error}>{errors.email}</Text>
+            {/* <Text style={styles.error}>{errors.email}</Text> */}
+            <ErrorMessage errorMessage={errors.email} />
             <TextInput
               onChange={handleChangeReactNative(handleChange("password"))}
               placeholder="Password"
@@ -58,8 +58,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
               autoComplete="password"
               secureTextEntry
             />
-            <Text style={styles.error}>{errors.password}</Text>
-            <Button title="Login" onPress={() => {}} />
+            <ErrorMessage errorMessage={errors.password} />
+            <Button title="Login" onPress={() => {}} style={styles.button} />
           </View>
         )}
       </Formik>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   form: {
     paddingHorizontal: 10,
   },
-  error: {
-    color: theme.colors.danger,
+  button: {
+    marginTop: 10,
   },
 })
