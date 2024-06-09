@@ -29,7 +29,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
         validationSchema={validationSchema}
       >
         {/* FORMIK JSX */}
-        {({ handleChange, errors, setFieldTouched, touched }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <View style={styles.form}>
             <Field
               placeholder="Email"
@@ -53,7 +53,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
               key={"password"}
               iconName="lock"
             />
-            <Button title="Login" onPress={() => {}} style={styles.button} />
+            <Button title="Login" onPress={() => handleSubmit()} style={styles.button} />
           </View>
         )}
       </Formik>
