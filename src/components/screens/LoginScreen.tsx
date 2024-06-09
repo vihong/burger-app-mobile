@@ -6,30 +6,21 @@ import { AuthRootStackParamList } from "../navigators/screenNavigators/AuthNavig
 import Logo from "../designSystem/atoms/Logo"
 import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from "react-native"
 import TextInput from "../designSystem/atoms/TextInput"
+import { Formik } from "formik"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 
 export default function LoginScreen({ navigation }: LoginScreenProps) {
-  const [email, setEmail] = useState("") // ❌
-  const [password, setPassword] = useState("") // ❌
-  const [loginInfo, setLoginInfo] = useState({
+  const loginInfo = {
     email: "",
     password: "",
-  }) // ✅
+  }
 
-  const handeSubmit = () => {}
+  type ChangeEventReactNative = NativeSyntheticEvent<TextInputChangeEventData>
+  type HandleChangeFormik = (value: string) => void
 
-  const handleChange = (event: NativeSyntheticEvent<TextInputChangeEventData>, key: string) => {
-    const newKey = key
-    const newValue = event.nativeEvent.text
-    console.log("newKey: ", newKey)
-    console.log("newValue: ", newValue)
-
-    const newloginInfo = {
-      ...loginInfo,
-      [newKey]: newValue, // dynamic property key & dynamic property value
-    }
-    setLoginInfo(newloginInfo)
+  const handleChangeReactNative = (handleChangeFormik: HandleChangeFormik) => {
+    return (event: ChangeEventReactNative) => handleChangeFormik(event.nativeEvent.text)
   }
 
   return (
@@ -37,29 +28,31 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
       <View style={styles.logo}>
         <Logo />
       </View>
-      <View style={styles.form}>
-        <TextInput
-          value={loginInfo.email}
-          onChange={(event) => handleChange(event, "email")}
-          placeholder="Email"
-          iconName="email"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          autoComplete="email"
-        />
-        <TextInput
-          value={loginInfo.password}
-          onChange={(event) => handleChange(event, "password")}
-          placeholder="Password"
-          iconName="lock"
-          autoCapitalize="none"
-          autoCorrect={false}
-          autoComplete="password"
-          secureTextEntry
-        />
-        <Button title="Login" onPress={handeSubmit} />
-      </View>
+      <Formik initialValues={loginInfo} onSubmit={() => console.log("form submitted")}>
+        {({ handleChange }) => (
+          <View style={styles.form}>
+            <TextInput
+              onChange={handleChangeReactNative(handleChange("email"))}
+              placeholder="Email"
+              iconName="email"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+              autoComplete="email"
+            />
+            <TextInput
+              onChange={handleChangeReactNative(handleChange("password"))}
+              placeholder="Password"
+              iconName="lock"
+              autoCapitalize="none"
+              autoCorrect={false}
+              autoComplete="password"
+              secureTextEntry
+            />
+            <Button title="Login" onPress={() => {}} />
+          </View>
+        )}
+      </Formik>
     </Screen>
   )
 }
