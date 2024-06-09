@@ -20,8 +20,16 @@ export default function AuthNavigator() {
         component={WelcomeScreen}
         options={{ headerShown: false }}
       />
-      <AuthStack.Screen name="LoginScreen" component={LoginScreen} />
-      <AuthStack.Screen name="RegisterScreen" component={RegisterScreen} />
+      <AuthStack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ headerBackTitle: "Welcome", title: "Login" }}
+      />
+      <AuthStack.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+        options={{ headerBackTitle: "Welcome", title: "Register" }}
+      />
     </AuthStack.Navigator>
   )
 }
