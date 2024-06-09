@@ -4,11 +4,11 @@ import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AuthRootStackParamList } from "../navigators/screenNavigators/AuthNavigator"
 import Logo from "../designSystem/atoms/Logo"
-import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from "react-native"
-import TextInput from "../designSystem/atoms/TextInput"
+import { StyleSheet, View } from "react-native"
 import { Formik } from "formik"
 import { validationSchema } from "@/utils/validation"
-import ErrorMessage from "../designSystem/molecules/ErrorMessage"
+import Field from "../designSystem/molecules/Field"
+import { handleChangeReactNative } from "@/utils/typescript"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 
@@ -16,14 +16,6 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   const loginInfo = {
     email: "",
     password: "",
-  }
-
-  type ChangeEventReactNative = NativeSyntheticEvent<TextInputChangeEventData>
-  type HandleChangeFormik = (value: string) => void
-
-  const handleChangeReactNative = (handleChangeFormik: HandleChangeFormik) => {
-    // pense bien à transvaser le contenu du event.nativeEvent.text into les paramètres handleChangeFormik
-    return (event: ChangeEventReactNative) => handleChangeFormik(event.nativeEvent.text)
   }
 
   return (
@@ -39,28 +31,28 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
         {/* FORMIK JSX */}
         {({ handleChange, errors, setFieldTouched, touched }) => (
           <View style={styles.form}>
-            <TextInput
+            <Field
               placeholder="Email"
               onChange={handleChangeReactNative(handleChange("email"))}
               onBlur={() => setFieldTouched("email")}
+              errorMessage={errors.email}
+              isErrorVisible={touched.email}
+              key={"email"}
               iconName="email"
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
               autoComplete="email"
             />
-            {<ErrorMessage errorMessage={errors.email} isVisible={touched.email} />}
-            <TextInput
+            <Field
               placeholder="Password"
               onChange={handleChangeReactNative(handleChange("password"))}
               onBlur={() => setFieldTouched("password")}
+              errorMessage={errors.password}
+              isErrorVisible={touched.password}
+              key={"password"}
               iconName="lock"
-              autoCapitalize="none"
-              autoCorrect={false}
-              autoComplete="password"
-              secureTextEntry
             />
-            <ErrorMessage errorMessage={errors.password} isVisible={touched.password} />
             <Button title="Login" onPress={() => {}} style={styles.button} />
           </View>
         )}

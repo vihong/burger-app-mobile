@@ -5,14 +5,15 @@ import {
   TextInput as ReactNativeTextInput,
   TextInputProps as RNTextInputProps,
   Platform,
-  ViewStyle,
+  StyleProp,
+  TextStyle,
 } from "react-native"
 import Icon, { MaterialCommunityIconName } from "./Icon"
 import { getPlatformFontFamily, theme } from "../../../style/theme"
 
 type TextInputProps = {
   iconName?: MaterialCommunityIconName
-  style?: ViewStyle
+  style?: StyleProp<TextStyle>
 } & RNTextInputProps
 
 export default function TextInput({ iconName, style, ...restProps }: TextInputProps) {
