@@ -13,7 +13,7 @@ export default function App() {
     <GestureHandlerRootView>
       {/* maybe add to GestureHandlerRootView style={{ flex: 1 }} */}
       <NavigationContainer theme={navigatorTheme}>
-        {isLoggedIn ? <TabNavigator /> : <DraftScreen />}
+        {isLoggedIn ? <TabNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </GestureHandlerRootView>
   )
