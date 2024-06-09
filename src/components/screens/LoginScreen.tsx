@@ -5,10 +5,10 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AuthRootStackParamList } from "../navigators/screenNavigators/AuthNavigator"
 import Logo from "../designSystem/atoms/Logo"
 import { StyleSheet, View } from "react-native"
-import { Formik } from "formik"
 import { validationSchema } from "@/utils/validation"
 import Field from "../designSystem/molecules/Field"
 import { handleChangeReactNative } from "@/utils/typescript"
+import { Formik } from "formik"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 
