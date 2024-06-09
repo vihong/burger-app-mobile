@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Screen from "../designSystem/atoms/Screen"
 import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
@@ -7,6 +7,9 @@ import Logo from "../designSystem/atoms/Logo"
 import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from "react-native"
 import TextInput from "../designSystem/atoms/TextInput"
 import { Formik } from "formik"
+import Text from "../designSystem/atoms/Text"
+import { theme } from "@/style/theme"
+import { validationSchema } from "@/utils/validation"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 
@@ -20,7 +23,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
   type HandleChangeFormik = (value: string) => void
 
   const handleChangeReactNative = (handleChangeFormik: HandleChangeFormik) => {
-    return (event: ChangeEventReactNative) => handleChangeFormik(event.nativeEvent.text)
+    let qqchTantQueCestUneString: string // tant que c'est les noms des champs de notre form
+    return (event: ChangeEventReactNative) => handleChangeFormik(qqchTantQueCestUneString)
   }
 
   return (
@@ -28,8 +32,12 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
       <View style={styles.logo}>
         <Logo />
       </View>
-      <Formik initialValues={loginInfo} onSubmit={() => console.log("form submitted")}>
-        {({ handleChange }) => (
+      <Formik
+        initialValues={loginInfo}
+        onSubmit={() => console.log("form submitted")}
+        validationSchema={validationSchema}
+      >
+        {({ handleChange, errors }) => (
           <View style={styles.form}>
             <TextInput
               onChange={handleChangeReactNative(handleChange("email"))}
@@ -40,6 +48,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
               autoCorrect={false}
               autoComplete="email"
             />
+            <Text style={styles.error}>{errors.email}</Text>
             <TextInput
               onChange={handleChangeReactNative(handleChange("password"))}
               placeholder="Password"
@@ -49,6 +58,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
               autoComplete="password"
               secureTextEntry
             />
+            <Text style={styles.error}>{errors.password}</Text>
             <Button title="Login" onPress={() => {}} />
           </View>
         )}
@@ -70,5 +80,8 @@ const styles = StyleSheet.create({
   },
   form: {
     paddingHorizontal: 10,
+  },
+  error: {
+    color: theme.colors.danger,
   },
 })
