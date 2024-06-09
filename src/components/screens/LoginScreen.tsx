@@ -36,29 +36,31 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
         onSubmit={() => console.log("form submitted")}
         validationSchema={validationSchema}
       >
-        {({ handleChange, errors }) => (
+        {/* FORMIK JSX */}
+        {({ handleChange, errors, setFieldTouched, touched }) => (
           <View style={styles.form}>
             <TextInput
-              onChange={handleChangeReactNative(handleChange("email"))}
               placeholder="Email"
+              onChange={handleChangeReactNative(handleChange("email"))}
+              onBlur={() => setFieldTouched("email")}
               iconName="email"
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
               autoComplete="email"
             />
-            {/* <Text style={styles.error}>{errors.email}</Text> */}
-            <ErrorMessage errorMessage={errors.email} />
+            {<ErrorMessage errorMessage={errors.email} isVisible={touched.email} />}
             <TextInput
-              onChange={handleChangeReactNative(handleChange("password"))}
               placeholder="Password"
+              onChange={handleChangeReactNative(handleChange("password"))}
+              onBlur={() => setFieldTouched("password")}
               iconName="lock"
               autoCapitalize="none"
               autoCorrect={false}
               autoComplete="password"
               secureTextEntry
             />
-            <ErrorMessage errorMessage={errors.password} />
+            <ErrorMessage errorMessage={errors.password} isVisible={touched.password} />
             <Button title="Login" onPress={() => {}} style={styles.button} />
           </View>
         )}
@@ -70,8 +72,6 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
 const styles = StyleSheet.create({
   screen: {
     padding: 10,
-    borderWidth: 1,
-    borderColor: "blue",
   },
   logo: {
     alignItems: "center",
