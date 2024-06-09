@@ -13,13 +13,13 @@ type ButtonProps = {
   title: string
   onPress: (event: GestureResponderEvent) => void
   textStyle?: StyleProp<TextStyle>
-  backgroundStyle?: StyleProp<ViewStyle>
   backgroundColor?: string
+  style?: StyleProp<ViewStyle>
 } & TouchableOpacityProps
 
-export default function Button({ title, onPress, textStyle, backgroundColor }: ButtonProps) {
+export default function Button({ title, onPress, textStyle, backgroundColor, style }: ButtonProps) {
   return (
-    <TouchableOpacityStyled onPress={onPress} backgroundColor={backgroundColor}>
+    <TouchableOpacityStyled onPress={onPress} backgroundColor={backgroundColor} style={style}>
       <TextStyled style={textStyle}>{title}</TextStyled>
     </TouchableOpacityStyled>
   )
