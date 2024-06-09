@@ -4,17 +4,32 @@ import Button from "../designSystem/atoms/Button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AuthRootStackParamList } from "../navigators/screenNavigators/AuthNavigator"
 import Logo from "../designSystem/atoms/Logo"
-import { StyleSheet, View } from "react-native"
+import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from "react-native"
 import TextInput from "../designSystem/atoms/TextInput"
 
 type LoginScreenProps = NativeStackScreenProps<AuthRootStackParamList, "LoginScreen">
 
 export default function LoginScreen({ navigation }: LoginScreenProps) {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("") // ❌
+  const [password, setPassword] = useState("") // ❌
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  }) // ✅
 
-  const handeSubmit = () => {
-    console.log(email, password)
+  const handeSubmit = () => {}
+
+  const handleChange = (event: NativeSyntheticEvent<TextInputChangeEventData>, key: string) => {
+    const newKey = key
+    const newValue = event.nativeEvent.text
+    console.log("newKey: ", newKey)
+    console.log("newValue: ", newValue)
+
+    const newloginInfo = {
+      ...loginInfo,
+      [newKey]: newValue, // dynamic property key & dynamic property value
+    }
+    setLoginInfo(newloginInfo)
   }
 
   return (
@@ -24,8 +39,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
       </View>
       <View style={styles.form}>
         <TextInput
-          value={email}
-          onChange={(event) => setEmail(event.nativeEvent.text)}
+          value={loginInfo.email}
+          onChange={(event) => handleChange(event, "email")}
           placeholder="Email"
           iconName="email"
           keyboardType="email-address"
@@ -34,8 +49,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
           autoComplete="email"
         />
         <TextInput
-          value={password}
-          onChange={(event) => setPassword(event.nativeEvent.text)}
+          value={loginInfo.password}
+          onChange={(event) => handleChange(event, "password")}
           placeholder="Password"
           iconName="lock"
           autoCapitalize="none"
