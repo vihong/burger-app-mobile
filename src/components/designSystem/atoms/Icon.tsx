@@ -1,6 +1,14 @@
 import React from "react"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { OpaqueColorValue, StyleSheet, View, ViewProps, ViewStyle } from "react-native"
+import {
+  OpaqueColorValue,
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  View,
+  ViewProps,
+  ViewStyle,
+} from "react-native"
 import { theme } from "../../../style/theme"
 
 export type MaterialCommunityIconName = keyof typeof MaterialCommunityIcons.glyphMap
@@ -11,7 +19,7 @@ export type IconProps = {
   backgroundColor?: string | OpaqueColorValue
   color?: string | OpaqueColorValue
   IsInCircle?: boolean
-  style?: ViewStyle
+  style?: StyleProp<ViewStyle> | StyleProp<TextStyle>
 } & ViewProps
 
 export default function Icon({

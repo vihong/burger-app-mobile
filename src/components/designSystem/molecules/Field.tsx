@@ -34,6 +34,7 @@ export default function Field({
         onBlur={onBlur}
         iconName={iconName}
         {...restProps}
+        // hasSuccess={!errorMessage}
       />
       {<ErrorMessage errorMessage={errorMessage} isVisible={isErrorVisible} />}
     </>

@@ -53,7 +53,7 @@ export default function Picker<T extends PickerItemType>({
         <View style={styles.textInputContainer}>
           {iconName && (
             <Icon
-              style={[styles.icon, style]}
+              style={[styles.iconLeft, style]}
               name={itemSelected ? itemSelected.iconName : iconName}
               color={theme.colors.greyDark}
               size={30}

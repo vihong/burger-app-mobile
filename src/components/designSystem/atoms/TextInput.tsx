@@ -14,20 +14,29 @@ import { getPlatformFontFamily, theme } from "../../../style/theme"
 type TextInputProps = {
   iconName?: MaterialCommunityIconName
   style?: StyleProp<TextStyle>
+  hasSuccess?: boolean
 } & RNTextInputProps
 
-export default function TextInput({ iconName, style, ...restProps }: TextInputProps) {
+export default function TextInput({ iconName, style, hasSuccess, ...restProps }: TextInputProps) {
   return (
     <View style={styles.textInputContainer}>
       {iconName && (
         <Icon
-          style={[styles.icon, style]}
+          style={[styles.iconLeft, style]}
           name={iconName}
           color={theme.colors.greyDark}
           size={30}
         />
       )}
       <ReactNativeTextInput {...restProps} style={styles.textInput} />
+      {hasSuccess && (
+        <Icon
+          style={[styles.iconRight, style]}
+          name={"check-circle"}
+          color={theme.colors.greyDark}
+          size={30}
+        />
+      )}
     </View>
   )
 }
@@ -44,8 +53,12 @@ export const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "white",
   },
-  icon: {
+  iconLeft: {
     marginRight: 10,
+  },
+  iconRight: {
+    // marginRight: 10,
+    color: theme.colors.success,
   },
   textInput: {
     fontFamily: getPlatformFontFamily(Platform.OS),

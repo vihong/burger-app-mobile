@@ -13,6 +13,7 @@ const colors = {
   greySemiDark: "#C7C7CD",
   yellow: "#fbe580",
   tomato: "#ea686b",
+  success: "#419b45",
 }
 
 type Size = "XS" | "S" | "M" | "L" | "titleXS" | "titleS" | "titleM" | "titleL" | "titleXL"
