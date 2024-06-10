@@ -7,7 +7,7 @@ import { useState } from "react"
 import DraftScreen from "@/components/screens/DraftScreen"
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   return (
     <GestureHandlerRootView>

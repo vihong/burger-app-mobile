@@ -1,6 +1,7 @@
 import { Animated } from "react-native"
 import { Swipeable } from "react-native-gesture-handler"
 import { ImageSourcePropType } from "react-native"
+import { PickerItemType } from "./Picker"
 
 export type RenderRightActionsType = (
   progressAnimatedValue: Animated.AnimatedInterpolation<string | number>,
@@ -22,10 +23,17 @@ export type ListItemType = {
   owner?: Owner
 }
 
-export type ProductType = {
-  id: number
+export type ProductInfo = {
+  id: string
   title: string
   price: number
-  image: ImageSourcePropType
+  category?: string
+  description?: string
+  image?: ImageSourcePropType
   owner?: Owner
 }
+
+export type ProductType = {
+  image: ImageSourcePropType
+  owner?: Owner
+} & ProductInfo

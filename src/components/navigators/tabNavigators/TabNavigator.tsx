@@ -6,10 +6,12 @@ import { theme } from "../../../style/theme"
 import SettingsScreen from "../../screens/SettingsScreen"
 import FeedNavigator from "../screenNavigators/FeedNavigator"
 import AccountNavigator from "../screenNavigators/AccountNavigator"
+import EditScreen from "@/components/screens/EditScreen"
 
 export type RootTabParamList = {
   FeedNavigator: undefined | { name?: string }
   AccountNavigator: undefined
+  EditScreen: undefined
   SettingsScreen: undefined
 }
 
@@ -22,6 +24,7 @@ type IconValues = [MaterialCommunityIconName, MaterialCommunityIconName]
 const iconNames: Record<TabName, IconValues> = {
   FeedNavigator: ["magnify-minus", "magnify-plus"],
   AccountNavigator: ["account", "account-outline"],
+  EditScreen: ["plus-circle", "plus-circle-outline"],
   SettingsScreen: ["account", "account-outline"],
 }
 
@@ -38,6 +41,7 @@ export default function TabNavigator() {
           />
         ),
       })}
+      initialRouteName="EditScreen"
     >
       <Tab.Screen name="FeedNavigator" component={FeedNavigator} options={{ title: "Feed" }} />
       <Tab.Screen
@@ -45,6 +49,7 @@ export default function TabNavigator() {
         component={AccountNavigator}
         options={{ title: "Account" }}
       />
+      <Tab.Screen name="EditScreen" component={EditScreen} options={{ title: "Edit" }} />
       <Tab.Screen
         name="SettingsScreen"
         component={SettingsScreen}

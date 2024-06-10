@@ -13,7 +13,7 @@ type FieldProps = {
   onChange?: ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void) | undefined
   onBlur?: ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void) | undefined
   errorMessage: string | undefined
-  iconName: MaterialCommunityIconName
+  iconName?: MaterialCommunityIconName
   isErrorVisible: boolean | undefined
 } & TextInputProps
 
